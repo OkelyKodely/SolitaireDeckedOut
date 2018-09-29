@@ -281,7 +281,7 @@ namespace Solitaire
             {
                 if (selectStackPaste())
                 {
-                    selectedMatCard = false;
+                    //selectedMatCard = false;
                     try
                     {
                         if (selectedPasteIndex != -1)
@@ -3262,7 +3262,7 @@ namespace Solitaire
                     }
                 }
             }
-            if(selectedStack != -1)
+            if(selectedStack != -1 && selectedStackCard)
             {
                 int yy = 0;
                 if(selectedStack == 1)
