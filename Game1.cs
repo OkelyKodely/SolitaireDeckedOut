@@ -18,6 +18,7 @@ namespace Solitaire
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont spriteFont;
+        List<Card> mystack;
         List<Card> cards;
         List<Card> cardsMat;
         List<Card> stack1;
@@ -576,7 +577,7 @@ namespace Solitaire
                     int compareTo = -1, compareTo2 = -1;
                     if (selectedStack == 1)
                     {
-                        if (selectedStackIndex == stack1.Count - 1)
+                        if (mystack.Count > 0)
                         {
                             if (countStack != 0)
                             {
@@ -586,10 +587,10 @@ namespace Solitaire
                             else
                             {
                                 compareTo = 1;
-                                compareTo2 = stack1[selectedStackIndex].suit;
+                                compareTo2 = mystack[mystack.Count - 1].suit;
                             }
-                            if (stack1[selectedStackIndex].rank == compareTo &&
-                                stack1[selectedStackIndex].suit == compareTo2)
+                            if (mystack[mystack.Count - 1].rank == compareTo &&
+                                mystack[mystack.Count - 1].suit == compareTo2)
                             {
                                 Card newCard = new Card();
                                 newCard.back = false;
@@ -602,7 +603,7 @@ namespace Solitaire
                                 else
                                     index = stackIndex + 1;
                                 stack.Insert(index, newCard);
-                                stack1.Remove(stack1[selectedStackIndex]);
+                                mystack.Clear();
                                 if (stack1.Count != 0)
                                     stack1[stack1.Count - 1].back = false;
                             }
@@ -610,7 +611,7 @@ namespace Solitaire
                     }
                     if (selectedStack == 2)
                     {
-                        if (selectedStackIndex == stack2.Count - 1)
+                        if (mystack.Count > 0)
                         {
                             if (countStack != 0)
                             {
@@ -620,10 +621,10 @@ namespace Solitaire
                             else
                             {
                                 compareTo = 1;
-                                compareTo2 = stack2[selectedStackIndex].suit;
+                                compareTo2 = mystack[mystack.Count - 1].suit;
                             }
-                            if (stack2[selectedStackIndex].rank == compareTo &&
-                                stack2[selectedStackIndex].suit == compareTo2)
+                            if (mystack[mystack.Count - 1].rank == compareTo &&
+                                mystack[mystack.Count - 1].suit == compareTo2)
                             {
                                 Card newCard = new Card();
                                 newCard.back = false;
@@ -636,7 +637,7 @@ namespace Solitaire
                                 else
                                     index = stackIndex + 1;
                                 stack.Insert(index, newCard);
-                                stack2.Remove(stack2[selectedStackIndex]);
+                                mystack.Clear();
                                 if (stack2.Count != 0)
                                     stack2[stack2.Count - 1].back = false;
                             }
@@ -644,7 +645,7 @@ namespace Solitaire
                     }
                     if (selectedStack == 3)
                     {
-                        if (selectedStackIndex == stack3.Count - 1)
+                        if (mystack.Count > 0)
                         {
                             if (countStack != 0)
                             {
@@ -654,10 +655,10 @@ namespace Solitaire
                             else
                             {
                                 compareTo = 1;
-                                compareTo2 = stack3[selectedStackIndex].suit;
+                                compareTo2 = mystack[mystack.Count - 1].suit;
                             }
-                            if (stack3[selectedStackIndex].rank == compareTo &&
-                                stack3[selectedStackIndex].suit == compareTo2)
+                            if (mystack[mystack.Count - 1].rank == compareTo &&
+                                mystack[mystack.Count - 1].suit == compareTo2)
                             {
                                 Card newCard = new Card();
                                 newCard.back = false;
@@ -670,7 +671,7 @@ namespace Solitaire
                                 else
                                     index = stackIndex + 1;
                                 stack.Insert(index, newCard);
-                                stack3.Remove(stack3[selectedStackIndex]);
+                                mystack.Clear();
                                 if (stack3.Count != 0)
                                     stack3[stack3.Count - 1].back = false;
                             }
@@ -678,7 +679,7 @@ namespace Solitaire
                     }
                     if (selectedStack == 4)
                     {
-                        if (selectedStackIndex == stack4.Count - 1)
+                        if (mystack.Count > 0)
                         {
                             if (countStack != 0)
                             {
@@ -688,10 +689,10 @@ namespace Solitaire
                             else
                             {
                                 compareTo = 1;
-                                compareTo2 = stack4[selectedStackIndex].suit;
+                                compareTo2 = mystack[mystack.Count - 1].suit;
                             }
-                            if (stack4[selectedStackIndex].rank == compareTo &&
-                                stack4[selectedStackIndex].suit == compareTo2)
+                            if (mystack[mystack.Count - 1].rank == compareTo &&
+                                mystack[mystack.Count - 1].suit == compareTo2)
                             {
                                 Card newCard = new Card();
                                 newCard.back = false;
@@ -704,7 +705,7 @@ namespace Solitaire
                                 else
                                     index = stackIndex + 1;
                                 stack.Insert(index, newCard);
-                                stack4.Remove(stack4[selectedStackIndex]);
+                                mystack.Clear();
                                 if (stack4.Count != 0)
                                     stack4[stack4.Count - 1].back = false;
                             }
@@ -712,7 +713,7 @@ namespace Solitaire
                     }
                     if (selectedStack == 5)
                     {
-                        if (selectedStackIndex == stack5.Count - 1)
+                        if (mystack.Count > 0)
                         {
                             if (countStack != 0)
                             {
@@ -722,10 +723,10 @@ namespace Solitaire
                             else
                             {
                                 compareTo = 1;
-                                compareTo2 = stack5[selectedStackIndex].suit;
+                                compareTo2 = mystack[mystack.Count - 1].suit;
                             }
-                            if (stack5[selectedStackIndex].rank == compareTo &&
-                                stack5[selectedStackIndex].suit == compareTo2)
+                            if (mystack[mystack.Count - 1].rank == compareTo &&
+                                mystack[mystack.Count - 1].suit == compareTo2)
                             {
                                 Card newCard = new Card();
                                 newCard.back = false;
@@ -738,7 +739,7 @@ namespace Solitaire
                                 else
                                     index = stackIndex + 1;
                                 stack.Insert(index, newCard);
-                                stack5.Remove(stack5[selectedStackIndex]);
+                                mystack.Clear();
                                 if (stack5.Count != 0)
                                     stack5[stack5.Count - 1].back = false;
                             }
@@ -746,7 +747,7 @@ namespace Solitaire
                     }
                     if (selectedStack == 6)
                     {
-                        if (selectedStackIndex == stack6.Count - 1)
+                        if (mystack.Count > 0)
                         {
                             if (countStack != 0)
                             {
@@ -756,10 +757,10 @@ namespace Solitaire
                             else
                             {
                                 compareTo = 1;
-                                compareTo2 = stack6[selectedStackIndex].suit;
+                                compareTo2 = mystack[mystack.Count - 1].suit;
                             }
-                            if (stack6[selectedStackIndex].rank == compareTo &&
-                                stack6[selectedStackIndex].suit == compareTo2)
+                            if (mystack[mystack.Count - 1].rank == compareTo &&
+                                mystack[mystack.Count - 1].suit == compareTo2)
                             {
                                 Card newCard = new Card();
                                 newCard.back = false;
@@ -772,7 +773,7 @@ namespace Solitaire
                                 else
                                     index = stackIndex + 1;
                                 stack.Insert(index, newCard);
-                                stack6.Remove(stack6[selectedStackIndex]);
+                                mystack.Clear();
                                 if (stack6.Count != 0)
                                     stack6[stack6.Count - 1].back = false;
                             }
@@ -780,7 +781,7 @@ namespace Solitaire
                     }
                     if (selectedStack == 7)
                     {
-                        if (selectedStackIndex == stack7.Count - 1)
+                        if (mystack.Count > 0)
                         {
                             if (countStack != 0)
                             {
@@ -790,10 +791,10 @@ namespace Solitaire
                             else
                             {
                                 compareTo = 1;
-                                compareTo2 = stack7[selectedStackIndex].suit;
+                                compareTo2 = mystack[mystack.Count - 1].suit;
                             }
-                            if (stack7[selectedStackIndex].rank == compareTo &&
-                                stack7[selectedStackIndex].suit == compareTo2)
+                            if (mystack[mystack.Count - 1].rank == compareTo &&
+                                mystack[mystack.Count - 1].suit == compareTo2)
                             {
                                 Card newCard = new Card();
                                 newCard.back = false;
@@ -806,7 +807,7 @@ namespace Solitaire
                                 else
                                     index = stackIndex + 1;
                                 stack.Insert(index, newCard);
-                                stack7.Remove(stack7[selectedStackIndex]);
+                                mystack.Clear();
                                 if (stack7.Count != 0)
                                     stack7[stack7.Count - 1].back = false;
                             }
@@ -819,329 +820,381 @@ namespace Solitaire
                     Card org = null, dest = null;
                     try
                     {
-                        if (selectedStack != -1 && selectedPaste != -1 && selectedStack != selectedPaste)
+                        //MessageBox.Show(selectedStack + "");
+                        //if (selectedStack != -1 && selectedPaste != -1 && selectedStack != selectedPaste)
+                        if(mystack.Count > 0)
                         {
-                            if (selectedPasteIndex == -1)
-                                selectedPasteIndex = 0;
-                            if (selectedPaste == 1)
+                            bool pass = true;
+                            try
                             {
-                                if (selectedStack == 1)
+                                if (selectedPasteIndex == -1)
+                                    selectedPasteIndex = 0;
+                                if (selectedPaste == 1)
                                 {
-                                    org = stack1[selectedStackIndex];
+                                    if (selectedStack == 1)
+                                    {
+                                        org = stack1[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 2)
+                                    {
+                                        org = stack2[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 3)
+                                    {
+                                        org = stack3[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 4)
+                                    {
+                                        org = stack4[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 5)
+                                    {
+                                        org = stack5[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 6)
+                                    {
+                                        org = stack6[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 7)
+                                    {
+                                        org = stack7[selectedStackIndex];
+                                    }
+                                    if (stack1.Count == 1)
+                                    {
+                                        dest = stack1[0];
+                                    }
+                                    else
+                                    {
+                                        if (selectedPasteIndex < stack1.Count)
+                                            dest = stack1[selectedPasteIndex];
+                                        else if (stack1.Count == 0)
+                                            dest = null;
+                                    }
                                 }
-                                if (selectedStack == 2)
+                                if (selectedPaste == 2)
                                 {
-                                    org = stack2[selectedStackIndex];
+                                    if (selectedStack == 1)
+                                    {
+                                        org = stack1[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 2)
+                                    {
+                                        org = stack2[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 3)
+                                    {
+                                        org = stack3[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 4)
+                                    {
+                                        org = stack4[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 5)
+                                    {
+                                        org = stack5[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 6)
+                                    {
+                                        org = stack6[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 7)
+                                    {
+                                        org = stack7[selectedStackIndex];
+                                    }
+                                    if (stack2.Count == 1)
+                                    {
+                                        dest = stack2[0];
+                                    }
+                                    else
+                                    {
+                                        if (selectedPasteIndex < stack2.Count)
+                                            dest = stack2[selectedPasteIndex];
+                                        else if (stack2.Count == 0)
+                                            dest = null;
+                                    }
                                 }
-                                if (selectedStack == 3)
+                                if (selectedPaste == 3)
                                 {
-                                    org = stack3[selectedStackIndex];
+                                    if (selectedStack == 1)
+                                    {
+                                        org = stack1[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 2)
+                                    {
+                                        org = stack2[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 3)
+                                    {
+                                        org = stack3[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 4)
+                                    {
+                                        org = stack4[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 5)
+                                    {
+                                        org = stack5[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 6)
+                                    {
+                                        org = stack6[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 7)
+                                    {
+                                        org = stack7[selectedStackIndex];
+                                    }
+                                    if (stack3.Count == 1)
+                                    {
+                                        dest = stack3[0];
+                                    }
+                                    else
+                                    {
+                                        if (selectedPasteIndex < stack3.Count)
+                                            dest = stack3[selectedPasteIndex];
+                                        else if (stack3.Count == 0)
+                                            dest = null;
+                                    }
                                 }
-                                if (selectedStack == 4)
+                                if (selectedPaste == 4)
                                 {
-                                    org = stack4[selectedStackIndex];
+                                    if (selectedStack == 1)
+                                    {
+                                        org = stack1[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 2)
+                                    {
+                                        org = stack2[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 3)
+                                    {
+                                        org = stack3[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 4)
+                                    {
+                                        org = stack4[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 5)
+                                    {
+                                        org = stack5[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 6)
+                                    {
+                                        org = stack6[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 7)
+                                    {
+                                        org = stack7[selectedStackIndex];
+                                    }
+                                    if (stack4.Count == 1)
+                                    {
+                                        dest = stack4[0];
+                                    }
+                                    else
+                                    {
+                                        if (selectedPasteIndex < stack4.Count)
+                                            dest = stack4[selectedPasteIndex];
+                                        else if (stack4.Count == 0)
+                                            dest = null;
+                                    }
                                 }
-                                if (selectedStack == 5)
+                                if (selectedPaste == 5)
                                 {
-                                    org = stack5[selectedStackIndex];
+                                    if (selectedStack == 1)
+                                    {
+                                        org = stack1[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 2)
+                                    {
+                                        org = stack2[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 3)
+                                    {
+                                        org = stack3[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 4)
+                                    {
+                                        org = stack4[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 5)
+                                    {
+                                        org = stack5[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 6)
+                                    {
+                                        org = stack6[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 7)
+                                    {
+                                        org = stack7[selectedStackIndex];
+                                    }
+                                    if (stack5.Count == 1)
+                                    {
+                                        dest = stack5[0];
+                                    }
+                                    else
+                                    {
+                                        if (selectedPasteIndex < stack5.Count)
+                                            dest = stack5[selectedPasteIndex];
+                                        else if (stack5.Count == 0)
+                                            dest = null;
+                                    }
                                 }
-                                if (selectedStack == 6)
+                                if (selectedPaste == 6)
                                 {
-                                    org = stack6[selectedStackIndex];
+                                    if (selectedStack == 1)
+                                    {
+                                        org = stack1[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 2)
+                                    {
+                                        org = stack2[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 3)
+                                    {
+                                        org = stack3[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 4)
+                                    {
+                                        org = stack4[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 5)
+                                    {
+                                        org = stack5[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 6)
+                                    {
+                                        org = stack6[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 7)
+                                    {
+                                        org = stack7[selectedStackIndex];
+                                    }
+                                    if (stack6.Count == 1)
+                                    {
+                                        dest = stack6[0];
+                                    }
+                                    else
+                                    {
+                                        if (selectedPasteIndex < stack6.Count)
+                                            dest = stack6[selectedPasteIndex];
+                                        else if (stack6.Count == 0)
+                                            dest = null;
+                                    }
                                 }
-                                if (selectedStack == 7)
+                                if (selectedPaste == 7)
                                 {
-                                    org = stack7[selectedStackIndex];
+                                    if (selectedStack == 1)
+                                    {
+                                        org = stack1[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 2)
+                                    {
+                                        org = stack2[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 3)
+                                    {
+                                        org = stack3[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 4)
+                                    {
+                                        org = stack4[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 5)
+                                    {
+                                        org = stack5[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 6)
+                                    {
+                                        org = stack6[selectedStackIndex];
+                                    }
+                                    if (selectedStack == 7)
+                                    {
+                                        org = stack7[selectedStackIndex];
+                                    }
+                                    if (stack7.Count == 1)
+                                    {
+                                        dest = stack7[0];
+                                    }
+                                    else
+                                    {
+                                        if (selectedPasteIndex < stack7.Count)
+                                            dest = stack7[selectedPasteIndex];
+                                        else if (stack7.Count == 0)
+                                            dest = null;
+                                    }
                                 }
-                                if (stack1.Count == 1)
+                                if (dest != null)
                                 {
-                                    dest = stack1[0];
+                                    if (dest.rank - 1 == org.rank)
+                                        pass = true;
                                 }
                                 else
                                 {
-                                    if (selectedPasteIndex < stack1.Count)
-                                        dest = stack1[selectedPasteIndex];
-                                    else if (stack1.Count == 0)
-                                        dest = null;
+                                    if (org.rank == 13)
+                                        pass = true;
                                 }
                             }
-                            if (selectedPaste == 2)
+                            catch(Exception e)
                             {
-                                if (selectedStack == 1)
-                                {
-                                    org = stack1[selectedStackIndex];
-                                }
-                                if (selectedStack == 2)
-                                {
-                                    org = stack2[selectedStackIndex];
-                                }
-                                if (selectedStack == 3)
-                                {
-                                    org = stack3[selectedStackIndex];
-                                }
-                                if (selectedStack == 4)
-                                {
-                                    org = stack4[selectedStackIndex];
-                                }
-                                if (selectedStack == 5)
-                                {
-                                    org = stack5[selectedStackIndex];
-                                }
-                                if (selectedStack == 6)
-                                {
-                                    org = stack6[selectedStackIndex];
-                                }
-                                if (selectedStack == 7)
-                                {
-                                    org = stack7[selectedStackIndex];
-                                }
-                                if (stack2.Count == 1)
-                                {
-                                    dest = stack2[0];
-                                }
-                                else
-                                {
-                                    if (selectedPasteIndex < stack2.Count)
-                                        dest = stack2[selectedPasteIndex];
-                                    else if (stack2.Count == 0)
-                                        dest = null;
-                                }
                             }
-                            if (selectedPaste == 3)
-                            {
-                                if (selectedStack == 1)
-                                {
-                                    org = stack1[selectedStackIndex];
-                                }
-                                if (selectedStack == 2)
-                                {
-                                    org = stack2[selectedStackIndex];
-                                }
-                                if (selectedStack == 3)
-                                {
-                                    org = stack3[selectedStackIndex];
-                                }
-                                if (selectedStack == 4)
-                                {
-                                    org = stack4[selectedStackIndex];
-                                }
-                                if (selectedStack == 5)
-                                {
-                                    org = stack5[selectedStackIndex];
-                                }
-                                if (selectedStack == 6)
-                                {
-                                    org = stack6[selectedStackIndex];
-                                }
-                                if (selectedStack == 7)
-                                {
-                                    org = stack7[selectedStackIndex];
-                                }
-                                if (stack3.Count == 1)
-                                {
-                                    dest = stack3[0];
-                                }
-                                else
-                                {
-                                    if (selectedPasteIndex < stack3.Count)
-                                        dest = stack3[selectedPasteIndex];
-                                    else if (stack3.Count == 0)
-                                        dest = null;
-                                }
-                            }
-                            if (selectedPaste == 4)
-                            {
-                                if (selectedStack == 1)
-                                {
-                                    org = stack1[selectedStackIndex];
-                                }
-                                if (selectedStack == 2)
-                                {
-                                    org = stack2[selectedStackIndex];
-                                }
-                                if (selectedStack == 3)
-                                {
-                                    org = stack3[selectedStackIndex];
-                                }
-                                if (selectedStack == 4)
-                                {
-                                    org = stack4[selectedStackIndex];
-                                }
-                                if (selectedStack == 5)
-                                {
-                                    org = stack5[selectedStackIndex];
-                                }
-                                if (selectedStack == 6)
-                                {
-                                    org = stack6[selectedStackIndex];
-                                }
-                                if (selectedStack == 7)
-                                {
-                                    org = stack7[selectedStackIndex];
-                                }
-                                if (stack4.Count == 1)
-                                {
-                                    dest = stack4[0];
-                                }
-                                else
-                                {
-                                    if (selectedPasteIndex < stack4.Count)
-                                        dest = stack4[selectedPasteIndex];
-                                    else if (stack4.Count == 0)
-                                        dest = null;
-                                }
-                            }
-                            if (selectedPaste == 5)
-                            {
-                                if (selectedStack == 1)
-                                {
-                                    org = stack1[selectedStackIndex];
-                                }
-                                if (selectedStack == 2)
-                                {
-                                    org = stack2[selectedStackIndex];
-                                }
-                                if (selectedStack == 3)
-                                {
-                                    org = stack3[selectedStackIndex];
-                                }
-                                if (selectedStack == 4)
-                                {
-                                    org = stack4[selectedStackIndex];
-                                }
-                                if (selectedStack == 5)
-                                {
-                                    org = stack5[selectedStackIndex];
-                                }
-                                if (selectedStack == 6)
-                                {
-                                    org = stack6[selectedStackIndex];
-                                }
-                                if (selectedStack == 7)
-                                {
-                                    org = stack7[selectedStackIndex];
-                                }
-                                if (stack5.Count == 1)
-                                {
-                                    dest = stack5[0];
-                                }
-                                else
-                                {
-                                    if (selectedPasteIndex < stack5.Count)
-                                        dest = stack5[selectedPasteIndex];
-                                    else if (stack5.Count == 0)
-                                        dest = null;
-                                }
-                            }
-                            if (selectedPaste == 6)
-                            {
-                                if (selectedStack == 1)
-                                {
-                                    org = stack1[selectedStackIndex];
-                                }
-                                if (selectedStack == 2)
-                                {
-                                    org = stack2[selectedStackIndex];
-                                }
-                                if (selectedStack == 3)
-                                {
-                                    org = stack3[selectedStackIndex];
-                                }
-                                if (selectedStack == 4)
-                                {
-                                    org = stack4[selectedStackIndex];
-                                }
-                                if (selectedStack == 5)
-                                {
-                                    org = stack5[selectedStackIndex];
-                                }
-                                if (selectedStack == 6)
-                                {
-                                    org = stack6[selectedStackIndex];
-                                }
-                                if (selectedStack == 7)
-                                {
-                                    org = stack7[selectedStackIndex];
-                                }
-                                if (stack6.Count == 1)
-                                {
-                                    dest = stack6[0];
-                                }
-                                else
-                                {
-                                    if (selectedPasteIndex < stack6.Count)
-                                        dest = stack6[selectedPasteIndex];
-                                    else if (stack6.Count == 0)
-                                        dest = null;
-                                }
-                            }
-                            if (selectedPaste == 7)
-                            {
-                                if (selectedStack == 1)
-                                {
-                                    org = stack1[selectedStackIndex];
-                                }
-                                if (selectedStack == 2)
-                                {
-                                    org = stack2[selectedStackIndex];
-                                }
-                                if (selectedStack == 3)
-                                {
-                                    org = stack3[selectedStackIndex];
-                                }
-                                if (selectedStack == 4)
-                                {
-                                    org = stack4[selectedStackIndex];
-                                }
-                                if (selectedStack == 5)
-                                {
-                                    org = stack5[selectedStackIndex];
-                                }
-                                if (selectedStack == 6)
-                                {
-                                    org = stack6[selectedStackIndex];
-                                }
-                                if (selectedStack == 7)
-                                {
-                                    org = stack7[selectedStackIndex];
-                                }
-                                if (stack7.Count == 1)
-                                {
-                                    dest = stack7[0];
-                                }
-                                else
-                                {
-                                    if (selectedPasteIndex < stack7.Count)
-                                        dest = stack7[selectedPasteIndex];
-                                    else if (stack7.Count == 0)
-                                        dest = null;
-                                }
-                            }
-                            bool pass = false;
-                            if (dest != null)
-                            {
-                                if (dest.rank - 1 == org.rank)
-                                    pass = true;
-                            }
-                            else
-                            {
-                                if (org.rank == 13)
-                                    pass = true;
-                            }
+                            pass = true;
                             if (selectedPaste == 1)
                             {
                                 if (pass || (selectedPasteIndex == 0 && stack1.Count == 0))
                                 {
-                                    if (selectedStack == 2 && stack2[selectedStackIndex].back == false)
+                                    if (1 == 1 || mystack[selectedStackIndex].back == false)
                                     {
-                                        while (selectedStackIndex < stack2.Count)
+                                        int ss = 0;
+                                        Boolean isit = false;
+                                        if (mystack[0].suit == Card.SPADE && (stack1[stack1.Count - 1].suit == Card.HEART || stack1[stack1.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.CLUB && (stack1[stack1.Count - 1].suit == Card.HEART || stack1[stack1.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.HEART && (stack1[stack1.Count - 1].suit == Card.SPADE || stack1[stack1.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.DIAMOND && (stack1[stack1.Count - 1].suit == Card.SPADE || stack1[stack1.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (stack1[stack1.Count - 1].back == true)
+                                            isit = true;
+                                        else if (mystack[0].rank != stack1[stack1.Count - 1].rank - 1)
+                                            isit = false;
+                                        if (isit)
                                         {
-                                            stack1.Add(stack2[selectedStackIndex]);
-                                            stack2.Remove(stack2[selectedStackIndex]);
+                                            while (ss < mystack.Count)
+                                            {
+                                                stack1.Add(mystack[ss]);
+                                                mystack.Remove(mystack[ss]);
 
-                                            if (stack2.Count != 0)
+                                                stack1[stack1.Count - 1].whatplace = "stak1";
+                                            }
+                                            if (selectedStack == 1)
+                                            {
+                                                stack1[stack1.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 2)
+                                            {
                                                 stack2[stack2.Count - 1].back = false;
-                                            stack1[stack1.Count - 1].whatplace = "stak1";
+                                            }
+                                            if (selectedStack == 3)
+                                            {
+                                                stack3[stack3.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 4)
+                                            {
+                                                stack4[stack4.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 5)
+                                            {
+                                                stack5[stack5.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 6)
+                                            {
+                                                stack6[stack6.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 7)
+                                            {
+                                                stack7[stack7.Count - 1].back = false;
+                                            }
                                         }
                                     }
                                     if (selectedStack == 3 && stack3[selectedStackIndex].back == false)
@@ -1210,16 +1263,59 @@ namespace Solitaire
                             {
                                 if (pass || (selectedPasteIndex == 0 && stack2.Count == 0))
                                 {
-                                    if (selectedStack == 1 && stack1[selectedStackIndex].back == false)
+                                    if (1 == 1 || mystack[selectedStackIndex].back == false)
                                     {
-                                        while (selectedStackIndex < stack1.Count)
+                                        int ss = 0;
+                                        Boolean isit = false;
+                                        if (mystack[0].suit == Card.SPADE && (stack2[stack2.Count - 1].suit == Card.HEART || stack2[stack2.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.CLUB && (stack2[stack2.Count - 1].suit == Card.HEART || stack2[stack2.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.HEART && (stack2[stack2.Count - 1].suit == Card.SPADE || stack2[stack2.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.DIAMOND && (stack2[stack2.Count - 1].suit == Card.SPADE || stack2[stack2.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (stack2[stack2.Count - 1].back == true)
+                                            isit = true;
+                                        else if (mystack[0].rank != stack2[stack2.Count - 1].rank - 1)
+                                            isit = false;
+                                        if (isit)
                                         {
-                                            stack2.Add(stack1[selectedStackIndex]);
-                                            stack1.Remove(stack1[selectedStackIndex]);
+                                            while (ss < mystack.Count)
+                                            {
+                                                stack2.Add(mystack[ss]);
+                                                mystack.Remove(mystack[ss]);
 
-                                            if (stack1.Count != 0)
+                                                stack2[stack2.Count - 1].whatplace = "stak2";
+                                            }
+                                            if (selectedStack == 1)
+                                            {
                                                 stack1[stack1.Count - 1].back = false;
-                                            stack2[stack2.Count - 1].whatplace = "stak2";
+                                            }
+                                            if (selectedStack == 2)
+                                            {
+                                                stack2[stack2.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 3)
+                                            {
+                                                stack3[stack3.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 4)
+                                            {
+                                                stack4[stack4.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 5)
+                                            {
+                                                stack5[stack5.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 6)
+                                            {
+                                                stack6[stack6.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 7)
+                                            {
+                                                stack7[stack7.Count - 1].back = false;
+                                            }
                                         }
                                     }
                                     if (selectedStack == 3 && stack3[selectedStackIndex].back == false)
@@ -1288,16 +1384,59 @@ namespace Solitaire
                             {
                                 if (pass || (selectedPasteIndex == 0 && stack3.Count == 0))
                                 {
-                                    if (selectedStack == 1 && stack1[selectedStackIndex].back == false)
+                                    if (1 == 1 || mystack[selectedStackIndex].back == false)
                                     {
-                                        while (selectedStackIndex < stack1.Count)
+                                        int ss = 0;
+                                        Boolean isit = false;
+                                        if (mystack[0].suit == Card.SPADE && (stack3[stack3.Count - 1].suit == Card.HEART || stack3[stack3.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.CLUB && (stack3[stack3.Count - 1].suit == Card.HEART || stack3[stack3.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.HEART && (stack3[stack3.Count - 1].suit == Card.SPADE || stack3[stack3.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.DIAMOND && (stack3[stack3.Count - 1].suit == Card.SPADE || stack3[stack3.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (stack3[stack3.Count - 1].back == true)
+                                            isit = true;
+                                        else if (mystack[0].rank != stack3[stack3.Count - 1].rank - 1)
+                                            isit = false;
+                                        if (isit)
                                         {
-                                            stack3.Add(stack1[selectedStackIndex]);
-                                            stack1.Remove(stack1[selectedStackIndex]);
+                                            while (ss < mystack.Count)
+                                            {
+                                                stack3.Add(mystack[ss]);
+                                                mystack.Remove(mystack[ss]);
 
-                                            if (stack1.Count != 0)
+                                                stack3[stack3.Count - 1].whatplace = "stak3";
+                                            }
+                                            if (selectedStack == 1)
+                                            {
                                                 stack1[stack1.Count - 1].back = false;
-                                            stack3[stack3.Count - 1].whatplace = "stak3";
+                                            }
+                                            if (selectedStack == 2)
+                                            {
+                                                stack2[stack2.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 3)
+                                            {
+                                                stack3[stack3.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 4)
+                                            {
+                                                stack4[stack4.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 5)
+                                            {
+                                                stack5[stack5.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 6)
+                                            {
+                                                stack6[stack6.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 7)
+                                            {
+                                                stack7[stack7.Count - 1].back = false;
+                                            }
                                         }
                                     }
                                     if (selectedStack == 2 && stack2[selectedStackIndex].back == false)
@@ -1366,16 +1505,59 @@ namespace Solitaire
                             {
                                 if (pass || (selectedPasteIndex == 0 && stack4.Count == 0))
                                 {
-                                    if (selectedStack == 1 && stack1[selectedStackIndex].back == false)
+                                    if (1 == 1 || mystack[selectedStackIndex].back == false)
                                     {
-                                        while (selectedStackIndex < stack1.Count)
+                                        int ss = 0;
+                                        Boolean isit = false;
+                                        if (mystack[0].suit == Card.SPADE && (stack4[stack4.Count - 1].suit == Card.HEART || stack4[stack4.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.CLUB && (stack4[stack4.Count - 1].suit == Card.HEART || stack4[stack4.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.HEART && (stack4[stack4.Count - 1].suit == Card.SPADE || stack4[stack4.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.DIAMOND && (stack4[stack4.Count - 1].suit == Card.SPADE || stack4[stack4.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (stack4[stack4.Count - 1].back == true)
+                                            isit = true;
+                                        else if (mystack[0].rank != stack4[stack4.Count - 1].rank - 1)
+                                            isit = false;
+                                        if (isit)
                                         {
-                                            stack4.Add(stack1[selectedStackIndex]);
-                                            stack1.Remove(stack1[selectedStackIndex]);
+                                            while (ss < mystack.Count)
+                                            {
+                                                stack4.Add(mystack[ss]);
+                                                mystack.Remove(mystack[ss]);
 
-                                            if (stack1.Count != 0)
+                                                stack4[stack4.Count - 1].whatplace = "stak4";
+                                            }
+                                            if (selectedStack == 1)
+                                            {
                                                 stack1[stack1.Count - 1].back = false;
-                                            stack4[stack4.Count - 1].whatplace = "stak4";
+                                            }
+                                            if (selectedStack == 2)
+                                            {
+                                                stack2[stack2.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 3)
+                                            {
+                                                stack3[stack3.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 4)
+                                            {
+                                                stack4[stack4.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 5)
+                                            {
+                                                stack5[stack5.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 6)
+                                            {
+                                                stack6[stack6.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 7)
+                                            {
+                                                stack7[stack7.Count - 1].back = false;
+                                            }
                                         }
                                     }
                                     if (selectedStack == 2 && stack2[selectedStackIndex].back == false)
@@ -1444,16 +1626,59 @@ namespace Solitaire
                             {
                                 if (pass || (selectedPasteIndex == 0 && stack5.Count == 0))
                                 {
-                                    if (selectedStack == 1 && stack1[selectedStackIndex].back == false)
+                                    if (1 == 1 || mystack[selectedStackIndex].back == false)
                                     {
-                                        while (selectedStackIndex < stack1.Count)
+                                        int ss = 0;
+                                        Boolean isit = false;
+                                        if (mystack[0].suit == Card.SPADE && (stack5[stack5.Count - 1].suit == Card.HEART || stack5[stack5.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.CLUB && (stack5[stack5.Count - 1].suit == Card.HEART || stack5[stack5.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.HEART && (stack5[stack5.Count - 1].suit == Card.SPADE || stack5[stack5.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.DIAMOND && (stack5[stack5.Count - 1].suit == Card.SPADE || stack5[stack5.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (stack5[stack5.Count - 1].back == true)
+                                            isit = true;
+                                        else if (mystack[0].rank != stack5[stack5.Count - 1].rank - 1)
+                                            isit = false;
+                                        if (isit)
                                         {
-                                            stack5.Add(stack1[selectedStackIndex]);
-                                            stack1.Remove(stack1[selectedStackIndex]);
+                                            while (ss < mystack.Count)
+                                            {
+                                                stack5.Add(mystack[ss]);
+                                                mystack.Remove(mystack[ss]);
 
-                                            if (stack1.Count != 0)
+                                                stack5[stack5.Count - 1].whatplace = "stak5";
+                                            }
+                                            if (selectedStack == 1)
+                                            {
                                                 stack1[stack1.Count - 1].back = false;
-                                            stack5[stack5.Count - 1].whatplace = "stak5";
+                                            }
+                                            if (selectedStack == 2)
+                                            {
+                                                stack2[stack2.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 3)
+                                            {
+                                                stack3[stack3.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 4)
+                                            {
+                                                stack4[stack4.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 5)
+                                            {
+                                                stack5[stack5.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 6)
+                                            {
+                                                stack6[stack6.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 7)
+                                            {
+                                                stack7[stack7.Count - 1].back = false;
+                                            }
                                         }
                                     }
                                     if (selectedStack == 2 && stack2[selectedStackIndex].back == false)
@@ -1522,16 +1747,59 @@ namespace Solitaire
                             {
                                 if (pass || (selectedPasteIndex == 0 && stack6.Count == 0))
                                 {
-                                    if (selectedStack == 1 && stack1[selectedStackIndex].back == false)
+                                    if (1 == 1 || mystack[selectedStackIndex].back == false)
                                     {
-                                        while (selectedStackIndex < stack1.Count)
+                                        int ss = 0;
+                                        Boolean isit = false;
+                                        if (mystack[0].suit == Card.SPADE && (stack6[stack6.Count - 1].suit == Card.HEART || stack6[stack6.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.CLUB && (stack6[stack6.Count - 1].suit == Card.HEART || stack6[stack6.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.HEART && (stack6[stack6.Count - 1].suit == Card.SPADE || stack6[stack6.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.DIAMOND && (stack6[stack6.Count - 1].suit == Card.SPADE || stack6[stack6.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (stack6[stack6.Count - 1].back == true)
+                                            isit = true;
+                                        else if (mystack[0].rank != stack6[stack6.Count - 1].rank - 1)
+                                            isit = false;
+                                        if (isit)
                                         {
-                                            stack6.Add(stack1[selectedStackIndex]);
-                                            stack1.Remove(stack1[selectedStackIndex]);
+                                            while (ss < mystack.Count)
+                                            {
+                                                stack6.Add(mystack[ss]);
+                                                mystack.Remove(mystack[ss]);
 
-                                            if (stack1.Count != 0)
+                                                stack6[stack6.Count - 1].whatplace = "stak6";
+                                            }
+                                            if (selectedStack == 1)
+                                            {
                                                 stack1[stack1.Count - 1].back = false;
-                                            stack6[stack6.Count - 1].whatplace = "stak6";
+                                            }
+                                            if (selectedStack == 2)
+                                            {
+                                                stack2[stack2.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 3)
+                                            {
+                                                stack3[stack3.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 4)
+                                            {
+                                                stack4[stack4.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 5)
+                                            {
+                                                stack5[stack5.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 6)
+                                            {
+                                                stack6[stack6.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 7)
+                                            {
+                                                stack7[stack7.Count - 1].back = false;
+                                            }
                                         }
                                     }
                                     if (selectedStack == 2 && stack2[selectedStackIndex].back == false)
@@ -1600,16 +1868,59 @@ namespace Solitaire
                             {
                                 if (pass || (selectedPasteIndex == 0 && stack7.Count == 0))
                                 {
-                                    if (selectedStack == 1 && stack1[selectedStackIndex].back == false)
+                                    if (1 == 1 || mystack[selectedStackIndex].back == false)
                                     {
-                                        while (selectedStackIndex < stack1.Count)
+                                        int ss = 0;
+                                        Boolean isit = false;
+                                        if (mystack[0].suit == Card.SPADE && (stack7[stack7.Count - 1].suit == Card.HEART || stack7[stack7.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.CLUB && (stack7[stack7.Count - 1].suit == Card.HEART || stack7[stack7.Count - 1].suit == Card.DIAMOND))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.HEART && (stack7[stack7.Count - 1].suit == Card.SPADE || stack7[stack7.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (mystack[0].suit == Card.DIAMOND && (stack7[stack7.Count - 1].suit == Card.SPADE || stack7[stack7.Count - 1].suit == Card.CLUB))
+                                            isit = true;
+                                        if (stack7[stack7.Count - 1].back == true)
+                                            isit = true;
+                                        else if (mystack[0].rank != stack7[stack7.Count - 1].rank - 1)
+                                            isit = false;
+                                        if (isit)
                                         {
-                                            stack7.Add(stack1[selectedStackIndex]);
-                                            stack1.Remove(stack1[selectedStackIndex]);
+                                            while (ss < mystack.Count)
+                                            {
+                                                stack7.Add(mystack[ss]);
+                                                mystack.Remove(mystack[ss]);
 
-                                            if (stack1.Count != 0)
+                                                stack7[stack7.Count - 1].whatplace = "stak7";
+                                            }
+                                            if (selectedStack == 1)
+                                            {
                                                 stack1[stack1.Count - 1].back = false;
-                                            stack7[stack7.Count - 1].whatplace = "stak7";
+                                            }
+                                            if (selectedStack == 2)
+                                            {
+                                                stack2[stack2.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 3)
+                                            {
+                                                stack3[stack3.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 4)
+                                            {
+                                                stack4[stack4.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 5)
+                                            {
+                                                stack5[stack5.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 6)
+                                            {
+                                                stack6[stack6.Count - 1].back = false;
+                                            }
+                                            if (selectedStack == 7)
+                                            {
+                                                stack7[stack7.Count - 1].back = false;
+                                            }
                                         }
                                     }
                                     if (selectedStack == 2 && stack2[selectedStackIndex].back == false)
@@ -2071,6 +2382,9 @@ namespace Solitaire
         {
             if (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released && _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
             {
+                if (mystack == null)
+                    mystack = new List<Card>();
+
                 if (cards == null)
                     return false;
 
@@ -2090,6 +2404,15 @@ namespace Solitaire
 
                         selectedStackIndex = i;
 
+                        mystack.Add(stack1[i]);
+
+                        stack1.Remove(stack1[i]);
+
+                        if (stack1.Count > 0)
+                        {
+                            //stack1[stack1.Count - 1].back = false;
+                        }
+
                         return true;
                     }
                 }
@@ -2106,6 +2429,15 @@ namespace Solitaire
                         selectedStack = 2;
 
                         selectedStackIndex = i;
+
+                        mystack.Add(stack2[i]);
+
+                        stack2.Remove(stack2[i]);
+
+                        if (stack2.Count > 0)
+                        {
+                            //stack2[stack2.Count - 1].back = false;
+                        }
 
                         return true;
                     }
@@ -2124,6 +2456,15 @@ namespace Solitaire
 
                         selectedStackIndex = i;
 
+                        mystack.Add(stack3[i]);
+
+                        stack3.Remove(stack3[i]);
+
+                        if (stack3.Count > 0)
+                        {
+                            //stack3[stack3.Count - 1].back = false;
+                        }
+
                         return true;
                     }
                 }
@@ -2140,6 +2481,15 @@ namespace Solitaire
                         selectedStack = 4;
 
                         selectedStackIndex = i;
+
+                        mystack.Add(stack4[i]);
+
+                        stack4.Remove(stack4[i]);
+
+                        if (stack4.Count > 0)
+                        {
+                            //stack4[stack4.Count - 1].back = false;
+                        }
 
                         return true;
                     }
@@ -2158,6 +2508,15 @@ namespace Solitaire
 
                         selectedStackIndex = i;
 
+                        mystack.Add(stack5[i]);
+
+                        stack5.Remove(stack5[i]);
+
+                        if (stack5.Count > 0)
+                        {
+                            //stack5[stack5.Count - 1].back = false;
+                        }
+
                         return true;
                     }
                 }
@@ -2174,6 +2533,15 @@ namespace Solitaire
                         selectedStack = 6;
 
                         selectedStackIndex = i;
+
+                        mystack.Add(stack6[i]);
+
+                        stack6.Remove(stack6[i]);
+
+                        if (stack6.Count > 0)
+                        {
+                            //stack6[stack6.Count - 1].back = false;
+                        }
 
                         return true;
                     }
@@ -2192,9 +2560,18 @@ namespace Solitaire
 
                         selectedStackIndex = i;
 
+                        mystack.Add(stack7[i]);
+
+                        stack7.Remove(stack7[i]);
+
+                        if (stack7.Count > 0)
+                        {
+                            //stack7[stack7.Count - 1].back = false;
+                        }
+
                         return true;
                     }
-                }            
+                }
             }
 
             return false;
@@ -2786,6 +3163,7 @@ namespace Solitaire
                 cards = FisherYates.Shuffle(cards);
 
                 cardsMat = new List<Card>();
+                mystack = new List<Card>();
                 stack1 = new List<Card>();
                 stack2 = new List<Card>();
                 stack3 = new List<Card>();
@@ -3262,84 +3640,101 @@ namespace Solitaire
                     }
                 }
             }
-            if(selectedStack != -1 && selectedStackCard)
+            try
+            {
+                if(selectedStack != -1 && selectedStackCard)
+                {
+                    int yy = 0;
+                    if(selectedStack == 1)
+                    for (int i = selectedStackIndex; i < stack1.Count && stack1.Count > 0; i++)
+                    {
+                        if (stack1[i].whatplace.Equals("stak1"))
+                        {
+                            card = Content.Load<Texture2D>(stack1[i].suit + "-" + stack1[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
+                        }
+                    }
+                    yy = 0;
+                    if (selectedStack == 2)
+                    for (int i = selectedStackIndex; i < stack2.Count && stack2.Count > 0; i++)
+                    {
+                        if (stack2[i].whatplace.Equals("stak2"))
+                        {
+                            card = Content.Load<Texture2D>(stack2[i].suit + "-" + stack2[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
+                        }
+                    }
+                    yy = 0;
+                    if (selectedStack == 3)
+                    for (int i = selectedStackIndex; i < stack3.Count && stack3.Count > 0; i++)
+                    {
+                        if (stack3[i].whatplace.Equals("stak3"))
+                        {
+                            card = Content.Load<Texture2D>(stack3[i].suit + "-" + stack3[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
+                        }
+                    }
+                    yy = 0;
+                    if (selectedStack == 4)
+                    for (int i = selectedStackIndex; i < stack4.Count && stack4.Count > 0; i++)
+                    {
+                        if (stack4[i].whatplace.Equals("stak4"))
+                        {
+                            card = Content.Load<Texture2D>(stack4[i].suit + "-" + stack4[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
+                        }
+                    }
+                    yy = 0;
+                    if (selectedStack == 5)
+                    for (int i = selectedStackIndex; i < stack5.Count && stack5.Count > 0; i++)
+                    {
+                        if (stack5[i].whatplace.Equals("stak5"))
+                        {
+                            card = Content.Load<Texture2D>(stack5[i].suit + "-" + stack5[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
+                        }
+                    }
+                    yy = 0;
+                    if (selectedStack == 6)
+                    for (int i = selectedStackIndex; i < stack6.Count && stack6.Count > 0; i++)
+                    {
+                        if (stack6[i].whatplace.Equals("stak6"))
+                        {
+                            card = Content.Load<Texture2D>(stack6[i].suit + "-" + stack6[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
+                        }
+                    }
+                    yy = 0;
+                    if (selectedStack == 7)
+                    for (int i = selectedStackIndex; i < stack7.Count && stack7.Count > 0; i++)
+                    {
+                        if (stack7[i].whatplace.Equals("stak7"))
+                        {
+                            card = Content.Load<Texture2D>(stack7[i].suit + "-" + stack7[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
+                        }
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+            }
+            if(mystack != null)
+            if (mystack.Count > 0)
             {
                 int yy = 0;
-                if(selectedStack == 1)
-                for (int i = selectedStackIndex; i < stack1.Count && stack1.Count > 0; i++)
+                for (int i = 0; i < mystack.Count && mystack.Count > 0; i++)
                 {
-                    if (stack1[i].whatplace.Equals("stak1"))
-                    {
-                        card = Content.Load<Texture2D>(stack1[i].suit + "-" + stack1[i].rank);
-                        spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                        yy += 25;
-                    }
-                }
-                yy = 0;
-                if (selectedStack == 2)
-                for (int i = selectedStackIndex; i < stack2.Count && stack2.Count > 0; i++)
-                {
-                    if (stack2[i].whatplace.Equals("stak2"))
-                    {
-                        card = Content.Load<Texture2D>(stack2[i].suit + "-" + stack2[i].rank);
-                        spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                        yy += 25;
-                    }
-                }
-                yy = 0;
-                if (selectedStack == 3)
-                for (int i = selectedStackIndex; i < stack3.Count && stack3.Count > 0; i++)
-                {
-                    if (stack3[i].whatplace.Equals("stak3"))
-                    {
-                        card = Content.Load<Texture2D>(stack3[i].suit + "-" + stack3[i].rank);
-                        spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                        yy += 25;
-                    }
-                }
-                yy = 0;
-                if (selectedStack == 4)
-                for (int i = selectedStackIndex; i < stack4.Count && stack4.Count > 0; i++)
-                {
-                    if (stack4[i].whatplace.Equals("stak4"))
-                    {
-                        card = Content.Load<Texture2D>(stack4[i].suit + "-" + stack4[i].rank);
-                        spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                        yy += 25;
-                    }
-                }
-                yy = 0;
-                if (selectedStack == 5)
-                for (int i = selectedStackIndex; i < stack5.Count && stack5.Count > 0; i++)
-                {
-                    if (stack5[i].whatplace.Equals("stak5"))
-                    {
-                        card = Content.Load<Texture2D>(stack5[i].suit + "-" + stack5[i].rank);
-                        spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                        yy += 25;
-                    }
-                }
-                yy = 0;
-                if (selectedStack == 6)
-                for (int i = selectedStackIndex; i < stack6.Count && stack6.Count > 0; i++)
-                {
-                    if (stack6[i].whatplace.Equals("stak6"))
-                    {
-                        card = Content.Load<Texture2D>(stack6[i].suit + "-" + stack6[i].rank);
-                        spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                        yy += 25;
-                    }
-                }
-                yy = 0;
-                if (selectedStack == 7)
-                for (int i = selectedStackIndex; i < stack7.Count && stack7.Count > 0; i++)
-                {
-                    if (stack7[i].whatplace.Equals("stak7"))
-                    {
-                        card = Content.Load<Texture2D>(stack7[i].suit + "-" + stack7[i].rank);
-                        spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                        yy += 25;
-                    }
+                    card = Content.Load<Texture2D>(mystack[i].suit + "-" + mystack[i].rank);
+                    spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                    yy += 25;
                 }
             }
             if (s_matCard)
