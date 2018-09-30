@@ -3704,7 +3704,7 @@ namespace Solitaire
                 if(whichstack.Equals("stack1"))
                 for (int i = 0; i < stack.Count && stack.Count > 0; i++)
                 {
-                    if (stack[i].whatplace.Equals("stack1"))
+                    if (stack[i].whatplace.Equals("stack1") && selectedFourIndex != -1)
                     {
                         stack[i].place = new Rectangle(300, 20, 80, 160);
                         card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
@@ -3714,7 +3714,7 @@ namespace Solitaire
                 if (whichstack.Equals("stack2"))
                 for (int i = 0; i < stack.Count && stack.Count > 0; i++)
                 {
-                    if (stack[i].whatplace.Equals("stack2"))
+                    if (stack[i].whatplace.Equals("stack2") && selectedFourIndex != -1)
                     {
                         stack[i].place = new Rectangle(400, 20, 80, 160);
                         card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
@@ -3724,7 +3724,7 @@ namespace Solitaire
                 if (whichstack.Equals("stack3"))
                 for (int i = 0; i < stack.Count && stack.Count > 0; i++)
                 {
-                    if (stack[i].whatplace.Equals("stack3"))
+                    if (stack[i].whatplace.Equals("stack3") && selectedFourIndex != -1)
                     {
                         stack[i].place = new Rectangle(500, 20, 80, 160);
                         card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
@@ -3734,7 +3734,7 @@ namespace Solitaire
                 if (whichstack.Equals("stack4"))
                 for (int i = 0; i < stack.Count && stack.Count > 0; i++)
                 {
-                    if (stack[i].whatplace.Equals("stack4"))
+                    if (stack[i].whatplace.Equals("stack4") && selectedFourIndex != -1)
                     {
                         stack[i].place = new Rectangle(600, 20, 80, 160);
                         card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
@@ -3752,12 +3752,9 @@ namespace Solitaire
                     {
                         if (stack1[i].whatplace.Equals("stak1"))
                         {
-                            if (selectedFourIndex != -1 || i < stack1.Count - 1)
-                            {
-                                card = Content.Load<Texture2D>(stack1[i].suit + "-" + stack1[i].rank);
-                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                                yy += 25;
-                            }
+                            card = Content.Load<Texture2D>(stack1[i].suit + "-" + stack1[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
                         }
                     }
                     yy = 0;
@@ -3766,12 +3763,9 @@ namespace Solitaire
                     {
                         if (stack2[i].whatplace.Equals("stak2"))
                         {
-                            if (selectedFourIndex != -1 || i < stack2.Count - 1)
-                            {
-                                card = Content.Load<Texture2D>(stack2[i].suit + "-" + stack2[i].rank);
-                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                                yy += 25;
-                            }
+                            card = Content.Load<Texture2D>(stack2[i].suit + "-" + stack2[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
                         }
                     }
                     yy = 0;
@@ -3780,12 +3774,9 @@ namespace Solitaire
                     {
                         if (stack3[i].whatplace.Equals("stak3"))
                         {
-                            if (selectedFourIndex != -1 || i < stack3.Count - 1)
-                            {
-                                card = Content.Load<Texture2D>(stack3[i].suit + "-" + stack3[i].rank);
-                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                                yy += 25;
-                            }
+                            card = Content.Load<Texture2D>(stack3[i].suit + "-" + stack3[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
                         }
                     }
                     yy = 0;
@@ -3794,12 +3785,9 @@ namespace Solitaire
                     {
                         if (stack4[i].whatplace.Equals("stak4"))
                         {
-                            if (selectedFourIndex != -1 || i < stack4.Count - 1)
-                            {
-                                card = Content.Load<Texture2D>(stack4[i].suit + "-" + stack4[i].rank);
-                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                                yy += 25;
-                            }
+                            card = Content.Load<Texture2D>(stack4[i].suit + "-" + stack4[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
                         }
                     }
                     yy = 0;
@@ -3808,12 +3796,9 @@ namespace Solitaire
                     {
                         if (stack5[i].whatplace.Equals("stak5"))
                         {
-                            if (selectedFourIndex != -1 || i < stack5.Count - 1)
-                            {
-                                card = Content.Load<Texture2D>(stack5[i].suit + "-" + stack5[i].rank);
-                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                                yy += 25;
-                            }
+                            card = Content.Load<Texture2D>(stack5[i].suit + "-" + stack5[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
                         }
                     }
                     yy = 0;
@@ -3822,12 +3807,9 @@ namespace Solitaire
                     {
                         if (stack6[i].whatplace.Equals("stak6"))
                         {
-                            if (selectedFourIndex != -1 || i < stack6.Count - 1)
-                            {
-                                card = Content.Load<Texture2D>(stack6[i].suit + "-" + stack6[i].rank);
-                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                                yy += 25;
-                            }
+                            card = Content.Load<Texture2D>(stack6[i].suit + "-" + stack6[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
                         }
                     }
                     yy = 0;
@@ -3836,12 +3818,9 @@ namespace Solitaire
                     {
                         if (stack7[i].whatplace.Equals("stak7"))
                         {
-                            if (selectedFourIndex != -1 || i < stack7.Count - 1)
-                            {
-                                card = Content.Load<Texture2D>(stack7[i].suit + "-" + stack7[i].rank);
-                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                                yy += 25;
-                            }
+                            card = Content.Load<Texture2D>(stack7[i].suit + "-" + stack7[i].rank);
+                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                            yy += 25;
                         }
                     }
                 }
