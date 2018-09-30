@@ -475,36 +475,42 @@ namespace Solitaire
                         else if (cardsMat.Count > 0)
                             curentCard = cardsMat.Count - 1;
                     }
-                    if (cardsMat.Count > 0 || 1 == 1)
+                    if (cardsMat.Count > 0)
                     {
-                        if (countStack == 0 && cardsMat[cardsMat.Count - 1].card.Equals("ace"))
+                        try
                         {
-                            Card newCard = new Card();
-                            newCard.card = "ace";
-                            newCard.rank = cardsMat[cardsMat.Count - 1].rank;
-                            newCard.suit = cardsMat[cardsMat.Count - 1].suit;
-                            newCard.whatplace = whichstack;
-                            stack.Add(newCard);
-                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                        }
-                        else
-                        {
-                            int nets = -1;
-                            for (int i = 0; i < stack.Count; i++)
+                            if (countStack == 0 && cardsMat[cardsMat.Count - 1].card.Equals("ace"))
                             {
-                                Card card = stack[i];
-                                if (card.whatplace.Equals(whichstack))
-                                {
-                                    if (cardsMat[cardsMat.Count - 1].rank - 1 == card.rank && card.suit.Equals(cardsMat[cardsMat.Count - 1].suit))
-                                        nets = i + 1;
-                                }
-                            }
-                            if (nets != -1)
-                            {
-                                cardsMat[cardsMat.Count - 1].whatplace = whichstack;
-                                stack.Insert(nets, cardsMat[cardsMat.Count - 1]);
+                                Card newCard = new Card();
+                                newCard.card = "ace";
+                                newCard.rank = cardsMat[cardsMat.Count - 1].rank;
+                                newCard.suit = cardsMat[cardsMat.Count - 1].suit;
+                                newCard.whatplace = whichstack;
+                                stack.Add(newCard);
                                 cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
                             }
+                            else
+                            {
+                                int nets = -1;
+                                for (int i = 0; i < stack.Count; i++)
+                                {
+                                    Card card = stack[i];
+                                    if (card.whatplace.Equals(whichstack))
+                                    {
+                                        if (cardsMat[cardsMat.Count - 1].rank - 1 == card.rank && card.suit.Equals(cardsMat[cardsMat.Count - 1].suit))
+                                            nets = i + 1;
+                                    }
+                                }
+                                if (nets != -1)
+                                {
+                                    cardsMat[cardsMat.Count - 1].whatplace = whichstack;
+                                    stack.Insert(nets, cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                }
+                            }
+                        }
+                        catch(Exception e)
+                        {
                         }
                     }
                 }
@@ -515,7 +521,7 @@ namespace Solitaire
                 selectedStackCard = false;
                 selectedPotCard = true;
                 s_potCard = true;
-                selectedFourIndex = -1;
+                //selectedFourIndex = -1;
             }
 
             if (selectedMatCard)
@@ -2689,6 +2695,8 @@ namespace Solitaire
 
                     selectedFourIndex = insertStack1;
 
+                    selectedMatCard = false;
+
                     if (selectedStackIndex < 0)
                         selectedStackIndex = 0;
 
@@ -2706,6 +2714,8 @@ namespace Solitaire
                     selectedStackIndex = insertStack2;
 
                     selectedFourIndex = insertStack2;
+
+                    selectedMatCard = false;
 
                     if (selectedStackIndex < 0)
                         selectedStackIndex = 0;
@@ -2725,6 +2735,8 @@ namespace Solitaire
 
                     selectedFourIndex = insertStack3;
 
+                    selectedMatCard = false;
+
                     if (selectedStackIndex < 0)
                         selectedStackIndex = 0;
 
@@ -2742,6 +2754,8 @@ namespace Solitaire
                     selectedStackIndex = insertStack4;
 
                     selectedFourIndex = insertStack4;
+
+                    selectedMatCard = false;
 
                     if (selectedStackIndex < 0)
                         selectedStackIndex = 0;
@@ -3606,7 +3620,7 @@ namespace Solitaire
                 {
                     if (stack[i].whatplace.Equals("stack1"))
                     {
-                        if (selectedFourIndex == -1 || i < stack.Count - 1)
+                        if (selectedFourIndex == -1 || i != selectedFourIndex)
                         {
                             stack[i].place = new Rectangle(300, 20, 80, 160);
                             card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
@@ -3618,7 +3632,7 @@ namespace Solitaire
                 {
                     if (stack[i].whatplace.Equals("stack2"))
                     {
-                        if (selectedFourIndex == -1 || i < stack.Count - 1)
+                        if (selectedFourIndex == -1 || i != selectedFourIndex)
                         {
                             stack[i].place = new Rectangle(400, 20, 80, 160);
                             card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
@@ -3630,7 +3644,7 @@ namespace Solitaire
                 {
                     if (stack[i].whatplace.Equals("stack3"))
                     {
-                        if (selectedFourIndex == -1 || i < stack.Count - 1)
+                        if (selectedFourIndex == -1 || i != selectedFourIndex)
                         {
                             stack[i].place = new Rectangle(500, 20, 80, 160);
                             card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
@@ -3642,7 +3656,7 @@ namespace Solitaire
                 {
                     if (stack[i].whatplace.Equals("stack4"))
                     {
-                        if (selectedFourIndex == -1 || i < stack.Count - 1)
+                        if (selectedFourIndex == -1 || i != selectedFourIndex)
                         {
                             stack[i].place = new Rectangle(600, 20, 80, 160);
                             card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
