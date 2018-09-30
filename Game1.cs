@@ -368,7 +368,8 @@ namespace Solitaire
                         {
                             if (selectedPast == 1 && selectedPasteIndex == -1)
                             {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13)
+                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                                    cardsMat[cardsMat.Count - 1].rank == 1)
                                 {
                                     stack1.Add(cardsMat[cardsMat.Count - 1]);
                                     cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
@@ -378,7 +379,8 @@ namespace Solitaire
                             }
                             if (selectedPast == 2 && selectedPasteIndex == -1)
                             {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13)
+                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                                    cardsMat[cardsMat.Count - 1].rank == 1)
                                 {
                                     stack2.Add(cardsMat[cardsMat.Count - 1]);
                                     cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
@@ -388,7 +390,8 @@ namespace Solitaire
                             }
                             if (selectedPast == 3 && selectedPasteIndex == -1)
                             {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13)
+                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                                    cardsMat[cardsMat.Count - 1].rank == 1)
                                 {
                                     stack3.Add(cardsMat[cardsMat.Count - 1]);
                                     cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
@@ -398,7 +401,8 @@ namespace Solitaire
                             }
                             if (selectedPast == 4 && selectedPasteIndex == -1)
                             {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13)
+                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                                    cardsMat[cardsMat.Count - 1].rank == 1)
                                 {
                                     stack4.Add(cardsMat[cardsMat.Count - 1]);
                                     cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
@@ -408,7 +412,8 @@ namespace Solitaire
                             }
                             if (selectedPast == 5 && selectedPasteIndex == -1)
                             {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13)
+                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                                    cardsMat[cardsMat.Count - 1].rank == 1)
                                 {
                                     stack5.Add(cardsMat[cardsMat.Count - 1]);
                                     cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
@@ -418,7 +423,8 @@ namespace Solitaire
                             }
                             if (selectedPast == 6 && selectedPasteIndex == -1)
                             {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13)
+                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                                    cardsMat[cardsMat.Count - 1].rank == 1)
                                 {
                                     stack6.Add(cardsMat[cardsMat.Count - 1]);
                                     cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
@@ -428,7 +434,8 @@ namespace Solitaire
                             }
                             if (selectedPast == 7 && selectedPasteIndex == -1)
                             {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13)
+                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                                    cardsMat[cardsMat.Count - 1].rank == 1)
                                 {
                                     stack7.Add(cardsMat[cardsMat.Count - 1]);
                                     cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
@@ -1144,18 +1151,23 @@ namespace Solitaire
                                     {
                                         int ss = 0;
                                         Boolean isit = false;
-                                        if (mystack[0].suit == Card.SPADE && (stack1[stack1.Count - 1].suit == Card.HEART || stack1[stack1.Count - 1].suit == Card.DIAMOND))
+                                        if (stack1.Count > 0)
+                                        {
+                                            if (mystack[0].suit == Card.SPADE && (stack1[stack1.Count - 1].suit == Card.HEART || stack1[stack1.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.CLUB && (stack1[stack1.Count - 1].suit == Card.HEART || stack1[stack1.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.HEART && (stack1[stack1.Count - 1].suit == Card.SPADE || stack1[stack1.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.DIAMOND && (stack1[stack1.Count - 1].suit == Card.SPADE || stack1[stack1.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (stack1[stack1.Count - 1].back == true)
+                                                isit = true;
+                                            else if (mystack[0].rank != stack1[stack1.Count - 1].rank - 1)
+                                                isit = false;
+                                        }
+                                        else if(mystack[0].card.Equals("king") || mystack[0].card.Equals("ace"))
                                             isit = true;
-                                        if (mystack[0].suit == Card.CLUB && (stack1[stack1.Count - 1].suit == Card.HEART || stack1[stack1.Count - 1].suit == Card.DIAMOND))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.HEART && (stack1[stack1.Count - 1].suit == Card.SPADE || stack1[stack1.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.DIAMOND && (stack1[stack1.Count - 1].suit == Card.SPADE || stack1[stack1.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (stack1[stack1.Count - 1].back == true)
-                                            isit = true;
-                                        else if (mystack[0].rank != stack1[stack1.Count - 1].rank - 1)
-                                            isit = false;
                                         if (isit)
                                         {
                                             while (ss < mystack.Count)
@@ -1265,18 +1277,23 @@ namespace Solitaire
                                     {
                                         int ss = 0;
                                         Boolean isit = false;
-                                        if (mystack[0].suit == Card.SPADE && (stack2[stack2.Count - 1].suit == Card.HEART || stack2[stack2.Count - 1].suit == Card.DIAMOND))
+                                        if (stack2.Count > 0)
+                                        {
+                                            if (mystack[0].suit == Card.SPADE && (stack2[stack2.Count - 1].suit == Card.HEART || stack2[stack2.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.CLUB && (stack2[stack2.Count - 1].suit == Card.HEART || stack2[stack2.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.HEART && (stack2[stack2.Count - 1].suit == Card.SPADE || stack2[stack2.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.DIAMOND && (stack2[stack2.Count - 1].suit == Card.SPADE || stack2[stack2.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (stack2[stack2.Count - 1].back == true)
+                                                isit = true;
+                                            else if (mystack[0].rank != stack2[stack2.Count - 1].rank - 1)
+                                                isit = false;
+                                        }
+                                        else if (mystack[0].card.Equals("king") || mystack[0].card.Equals("ace"))
                                             isit = true;
-                                        if (mystack[0].suit == Card.CLUB && (stack2[stack2.Count - 1].suit == Card.HEART || stack2[stack2.Count - 1].suit == Card.DIAMOND))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.HEART && (stack2[stack2.Count - 1].suit == Card.SPADE || stack2[stack2.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.DIAMOND && (stack2[stack2.Count - 1].suit == Card.SPADE || stack2[stack2.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (stack2[stack2.Count - 1].back == true)
-                                            isit = true;
-                                        else if (mystack[0].rank != stack2[stack2.Count - 1].rank - 1)
-                                            isit = false;
                                         if (isit)
                                         {
                                             while (ss < mystack.Count)
@@ -1386,18 +1403,23 @@ namespace Solitaire
                                     {
                                         int ss = 0;
                                         Boolean isit = false;
-                                        if (mystack[0].suit == Card.SPADE && (stack3[stack3.Count - 1].suit == Card.HEART || stack3[stack3.Count - 1].suit == Card.DIAMOND))
+                                        if (stack3.Count > 0)
+                                        {
+                                            if (mystack[0].suit == Card.SPADE && (stack3[stack3.Count - 1].suit == Card.HEART || stack3[stack3.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.CLUB && (stack3[stack3.Count - 1].suit == Card.HEART || stack3[stack3.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.HEART && (stack3[stack3.Count - 1].suit == Card.SPADE || stack3[stack3.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.DIAMOND && (stack3[stack3.Count - 1].suit == Card.SPADE || stack3[stack3.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (stack3[stack3.Count - 1].back == true)
+                                                isit = true;
+                                            else if (mystack[0].rank != stack3[stack3.Count - 1].rank - 1)
+                                                isit = false;
+                                        }
+                                        else if (mystack[0].card.Equals("king") || mystack[0].card.Equals("ace"))
                                             isit = true;
-                                        if (mystack[0].suit == Card.CLUB && (stack3[stack3.Count - 1].suit == Card.HEART || stack3[stack3.Count - 1].suit == Card.DIAMOND))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.HEART && (stack3[stack3.Count - 1].suit == Card.SPADE || stack3[stack3.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.DIAMOND && (stack3[stack3.Count - 1].suit == Card.SPADE || stack3[stack3.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (stack3[stack3.Count - 1].back == true)
-                                            isit = true;
-                                        else if (mystack[0].rank != stack3[stack3.Count - 1].rank - 1)
-                                            isit = false;
                                         if (isit)
                                         {
                                             while (ss < mystack.Count)
@@ -1507,18 +1529,23 @@ namespace Solitaire
                                     {
                                         int ss = 0;
                                         Boolean isit = false;
-                                        if (mystack[0].suit == Card.SPADE && (stack4[stack4.Count - 1].suit == Card.HEART || stack4[stack4.Count - 1].suit == Card.DIAMOND))
+                                        if (stack4.Count > 0)
+                                        {
+                                            if (mystack[0].suit == Card.SPADE && (stack4[stack4.Count - 1].suit == Card.HEART || stack4[stack4.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.CLUB && (stack4[stack4.Count - 1].suit == Card.HEART || stack4[stack4.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.HEART && (stack4[stack4.Count - 1].suit == Card.SPADE || stack4[stack4.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.DIAMOND && (stack4[stack4.Count - 1].suit == Card.SPADE || stack4[stack4.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (stack4[stack4.Count - 1].back == true)
+                                                isit = true;
+                                            else if (mystack[0].rank != stack4[stack4.Count - 1].rank - 1)
+                                                isit = false;
+                                        }
+                                        else if (mystack[0].card.Equals("king") || mystack[0].card.Equals("ace"))
                                             isit = true;
-                                        if (mystack[0].suit == Card.CLUB && (stack4[stack4.Count - 1].suit == Card.HEART || stack4[stack4.Count - 1].suit == Card.DIAMOND))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.HEART && (stack4[stack4.Count - 1].suit == Card.SPADE || stack4[stack4.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.DIAMOND && (stack4[stack4.Count - 1].suit == Card.SPADE || stack4[stack4.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (stack4[stack4.Count - 1].back == true)
-                                            isit = true;
-                                        else if (mystack[0].rank != stack4[stack4.Count - 1].rank - 1)
-                                            isit = false;
                                         if (isit)
                                         {
                                             while (ss < mystack.Count)
@@ -1628,18 +1655,23 @@ namespace Solitaire
                                     {
                                         int ss = 0;
                                         Boolean isit = false;
-                                        if (mystack[0].suit == Card.SPADE && (stack5[stack5.Count - 1].suit == Card.HEART || stack5[stack5.Count - 1].suit == Card.DIAMOND))
+                                        if (stack5.Count > 0)
+                                        {
+                                            if (mystack[0].suit == Card.SPADE && (stack5[stack5.Count - 1].suit == Card.HEART || stack5[stack5.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.CLUB && (stack5[stack5.Count - 1].suit == Card.HEART || stack5[stack5.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.HEART && (stack5[stack5.Count - 1].suit == Card.SPADE || stack5[stack5.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.DIAMOND && (stack5[stack5.Count - 1].suit == Card.SPADE || stack5[stack5.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (stack5[stack5.Count - 1].back == true)
+                                                isit = true;
+                                            else if (mystack[0].rank != stack5[stack5.Count - 1].rank - 1)
+                                                isit = false;
+                                        }
+                                        else if (mystack[0].card.Equals("king") || mystack[0].card.Equals("ace"))
                                             isit = true;
-                                        if (mystack[0].suit == Card.CLUB && (stack5[stack5.Count - 1].suit == Card.HEART || stack5[stack5.Count - 1].suit == Card.DIAMOND))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.HEART && (stack5[stack5.Count - 1].suit == Card.SPADE || stack5[stack5.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.DIAMOND && (stack5[stack5.Count - 1].suit == Card.SPADE || stack5[stack5.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (stack5[stack5.Count - 1].back == true)
-                                            isit = true;
-                                        else if (mystack[0].rank != stack5[stack5.Count - 1].rank - 1)
-                                            isit = false;
                                         if (isit)
                                         {
                                             while (ss < mystack.Count)
@@ -1749,18 +1781,23 @@ namespace Solitaire
                                     {
                                         int ss = 0;
                                         Boolean isit = false;
-                                        if (mystack[0].suit == Card.SPADE && (stack6[stack6.Count - 1].suit == Card.HEART || stack6[stack6.Count - 1].suit == Card.DIAMOND))
+                                        if (stack6.Count > 0)
+                                        {
+                                            if (mystack[0].suit == Card.SPADE && (stack6[stack6.Count - 1].suit == Card.HEART || stack6[stack6.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.CLUB && (stack6[stack6.Count - 1].suit == Card.HEART || stack6[stack6.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.HEART && (stack6[stack6.Count - 1].suit == Card.SPADE || stack6[stack6.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.DIAMOND && (stack6[stack6.Count - 1].suit == Card.SPADE || stack6[stack6.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (stack6[stack6.Count - 1].back == true)
+                                                isit = true;
+                                            else if (mystack[0].rank != stack6[stack6.Count - 1].rank - 1)
+                                                isit = false;
+                                        }
+                                        else if (mystack[0].card.Equals("king") || mystack[0].card.Equals("ace"))
                                             isit = true;
-                                        if (mystack[0].suit == Card.CLUB && (stack6[stack6.Count - 1].suit == Card.HEART || stack6[stack6.Count - 1].suit == Card.DIAMOND))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.HEART && (stack6[stack6.Count - 1].suit == Card.SPADE || stack6[stack6.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.DIAMOND && (stack6[stack6.Count - 1].suit == Card.SPADE || stack6[stack6.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (stack6[stack6.Count - 1].back == true)
-                                            isit = true;
-                                        else if (mystack[0].rank != stack6[stack6.Count - 1].rank - 1)
-                                            isit = false;
                                         if (isit)
                                         {
                                             while (ss < mystack.Count)
@@ -1870,18 +1907,23 @@ namespace Solitaire
                                     {
                                         int ss = 0;
                                         Boolean isit = false;
-                                        if (mystack[0].suit == Card.SPADE && (stack7[stack7.Count - 1].suit == Card.HEART || stack7[stack7.Count - 1].suit == Card.DIAMOND))
+                                        if (stack7.Count > 0)
+                                        {
+                                            if (mystack[0].suit == Card.SPADE && (stack7[stack7.Count - 1].suit == Card.HEART || stack7[stack7.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.CLUB && (stack7[stack7.Count - 1].suit == Card.HEART || stack7[stack7.Count - 1].suit == Card.DIAMOND))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.HEART && (stack7[stack7.Count - 1].suit == Card.SPADE || stack7[stack7.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (mystack[0].suit == Card.DIAMOND && (stack7[stack7.Count - 1].suit == Card.SPADE || stack7[stack7.Count - 1].suit == Card.CLUB))
+                                                isit = true;
+                                            if (stack7[stack7.Count - 1].back == true)
+                                                isit = true;
+                                            else if (mystack[0].rank != stack7[stack7.Count - 1].rank - 1)
+                                                isit = false;
+                                        }
+                                        else if (mystack[0].card.Equals("king") || mystack[0].card.Equals("ace"))
                                             isit = true;
-                                        if (mystack[0].suit == Card.CLUB && (stack7[stack7.Count - 1].suit == Card.HEART || stack7[stack7.Count - 1].suit == Card.DIAMOND))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.HEART && (stack7[stack7.Count - 1].suit == Card.SPADE || stack7[stack7.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (mystack[0].suit == Card.DIAMOND && (stack7[stack7.Count - 1].suit == Card.SPADE || stack7[stack7.Count - 1].suit == Card.CLUB))
-                                            isit = true;
-                                        if (stack7[stack7.Count - 1].back == true)
-                                            isit = true;
-                                        else if (mystack[0].rank != stack7[stack7.Count - 1].rank - 1)
-                                            isit = false;
                                         if (isit)
                                         {
                                             while (ss < mystack.Count)
