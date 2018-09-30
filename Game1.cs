@@ -820,8 +820,6 @@ namespace Solitaire
                     Card org = null, dest = null;
                     try
                     {
-                        //MessageBox.Show(selectedStack + "");
-                        //if (selectedStack != -1 && selectedPaste != -1 && selectedStack != selectedPaste)
                         if(mystack.Count > 0)
                         {
                             bool pass = true;
@@ -2400,18 +2398,18 @@ namespace Solitaire
 
                     if (area.Contains(mousePosition))
                     {
-                        selectedStack = 1;
-
-                        selectedStackIndex = i;
-
-                        mystack.Add(stack1[i]);
-
-                        stack1.Remove(stack1[i]);
-
-                        if (stack1.Count > 0)
+                        if (stack1[i].back == false)
                         {
-                            //stack1[stack1.Count - 1].back = false;
+                            selectedStack = 1;
+
+                            selectedStackIndex = i;
+
+                            mystack.Add(stack1[i]);
+
+                            stack1.Remove(stack1[i]);
                         }
+                        else
+                            return false;
 
                         return true;
                     }
@@ -2426,18 +2424,18 @@ namespace Solitaire
 
                     if (area.Contains(mousePosition))
                     {
-                        selectedStack = 2;
-
-                        selectedStackIndex = i;
-
-                        mystack.Add(stack2[i]);
-
-                        stack2.Remove(stack2[i]);
-
-                        if (stack2.Count > 0)
+                        if (stack2[i].back == false)
                         {
-                            //stack2[stack2.Count - 1].back = false;
+                            selectedStack = 2;
+
+                            selectedStackIndex = i;
+
+                            mystack.Add(stack2[i]);
+
+                            stack2.Remove(stack2[i]);
                         }
+                        else
+                            return false;
 
                         return true;
                     }
@@ -2452,18 +2450,18 @@ namespace Solitaire
 
                     if (area.Contains(mousePosition))
                     {
-                        selectedStack = 3;
-
-                        selectedStackIndex = i;
-
-                        mystack.Add(stack3[i]);
-
-                        stack3.Remove(stack3[i]);
-
-                        if (stack3.Count > 0)
+                        if (stack3[i].back == false)
                         {
-                            //stack3[stack3.Count - 1].back = false;
+                            selectedStack = 3;
+
+                            selectedStackIndex = i;
+
+                            mystack.Add(stack3[i]);
+
+                            stack3.Remove(stack3[i]);
                         }
+                        else
+                            return false;
 
                         return true;
                     }
@@ -2478,18 +2476,18 @@ namespace Solitaire
 
                     if (area.Contains(mousePosition))
                     {
-                        selectedStack = 4;
-
-                        selectedStackIndex = i;
-
-                        mystack.Add(stack4[i]);
-
-                        stack4.Remove(stack4[i]);
-
-                        if (stack4.Count > 0)
+                        if (stack4[i].back == false)
                         {
-                            //stack4[stack4.Count - 1].back = false;
+                            selectedStack = 4;
+
+                            selectedStackIndex = i;
+
+                            mystack.Add(stack4[i]);
+
+                            stack4.Remove(stack4[i]);
                         }
+                        else
+                            return false;
 
                         return true;
                     }
@@ -2504,18 +2502,18 @@ namespace Solitaire
 
                     if (area.Contains(mousePosition))
                     {
-                        selectedStack = 5;
-
-                        selectedStackIndex = i;
-
-                        mystack.Add(stack5[i]);
-
-                        stack5.Remove(stack5[i]);
-
-                        if (stack5.Count > 0)
+                        if (stack5[i].back == false)
                         {
-                            //stack5[stack5.Count - 1].back = false;
+                            selectedStack = 5;
+
+                            selectedStackIndex = i;
+
+                            mystack.Add(stack5[i]);
+
+                            stack5.Remove(stack5[i]);
                         }
+                        else
+                            return false;
 
                         return true;
                     }
@@ -2530,18 +2528,18 @@ namespace Solitaire
 
                     if (area.Contains(mousePosition))
                     {
-                        selectedStack = 6;
-
-                        selectedStackIndex = i;
-
-                        mystack.Add(stack6[i]);
-
-                        stack6.Remove(stack6[i]);
-
-                        if (stack6.Count > 0)
+                        if (stack6[i].back == false)
                         {
-                            //stack6[stack6.Count - 1].back = false;
+                            selectedStack = 6;
+
+                            selectedStackIndex = i;
+
+                            mystack.Add(stack6[i]);
+
+                            stack6.Remove(stack6[i]);
                         }
+                        else
+                            return false;
 
                         return true;
                     }
@@ -2556,18 +2554,18 @@ namespace Solitaire
 
                     if (area.Contains(mousePosition))
                     {
-                        selectedStack = 7;
-
-                        selectedStackIndex = i;
-
-                        mystack.Add(stack7[i]);
-
-                        stack7.Remove(stack7[i]);
-
-                        if (stack7.Count > 0)
+                        if (stack7[i].back == false)
                         {
-                            //stack7[stack7.Count - 1].back = false;
+                            selectedStack = 7;
+
+                            selectedStackIndex = i;
+
+                            mystack.Add(stack7[i]);
+
+                            stack7.Remove(stack7[i]);
                         }
+                        else
+                            return false;
 
                         return true;
                     }
