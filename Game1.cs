@@ -221,9 +221,9 @@ namespace Solitaire
                 ok.SetBounds(180, 280, 50, 40);
                 ok.MouseClick += (sender, e) =>
                 {
-                    rules.Visible = false;
+                    rules.Dispose();
                 };
-                panel.Controls.Add(ok);
+                //panel.Controls.Add(ok);
                 rules.MaximizeBox = false;
                 rules.FormBorderStyle = FormBorderStyle.FixedSingle;
                 rules.Height += 80;
@@ -3348,7 +3348,7 @@ namespace Solitaire
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Green);
+            GraphicsDevice.Clear(Color.DimGray);
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
@@ -3432,8 +3432,20 @@ namespace Solitaire
                 {
                     try
                     {
-                        card = Content.Load<Texture2D>(cardsMat[i].suit + "-" + cardsMat[i].rank);
-                        spriteBatch.Draw(card, cardsMat[i].place, Color.White);
+                        Boolean isit = false;
+                        if (i < cardsMat.Count - 1)
+                        {
+                            isit = false;
+                        }
+                        else if (s_matCard)
+                        {
+                            isit = true;
+                        }
+                        if (!isit)
+                        {
+                            card = Content.Load<Texture2D>(cardsMat[i].suit + "-" + cardsMat[i].rank);
+                            spriteBatch.Draw(card, cardsMat[i].place, Color.White);
+                        }
                     }
                     catch (Exception e)
                     {
