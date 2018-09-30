@@ -52,6 +52,7 @@ namespace Solitaire
         int selectedStackIndex = -1;
         int selectedPaste = -1;
         int selectedPIndex = -1;
+        int selectedFourIndex = -1;
         int selectedPasteIndex = -1;
         bool continuePot = false;
         Form rules = new Form();
@@ -276,9 +277,10 @@ namespace Solitaire
             {
                 selectedMatCard = true;
                 s_matCard = true;
+                selectedFourIndex = -1;
             }
 
-            if(selectedMatCard)
+            if (selectedMatCard)
             {
                 if (selectStackPaste())
                 {
@@ -513,12 +515,14 @@ namespace Solitaire
                 selectedStackCard = false;
                 selectedPotCard = true;
                 s_potCard = true;
+                selectedFourIndex = -1;
             }
 
             if (selectedMatCard)
             {
                 selectedStackCard = false;
                 s_potCard = false;
+                selectedFourIndex = -1;
             }
 
             if (selectedPotCard)
@@ -528,6 +532,7 @@ namespace Solitaire
             {
                 selectedStackCard = true;
                 selectedMatCard = false;
+                selectedFourIndex = -1;
             }
 
             if (selectedStackCard)
@@ -825,6 +830,7 @@ namespace Solitaire
                 {
                     s_potCard = false;
                     Card org = null, dest = null;
+                    selectedFourIndex = -1;
                     try
                     {
                         if(mystack.Count > 0)
@@ -2038,9 +2044,10 @@ namespace Solitaire
             {
                 selectedPotCard = true;
                 selectedS = -1;
+                selectedFourIndex = -1;
             }
 
-            if(selectedPotCard && selectedS == -1)
+            if (selectedPotCard && selectedS == -1)
             {
                 try
                 {
@@ -2191,9 +2198,10 @@ namespace Solitaire
             if (selectedStackCard)
             {
                 selectedAnywhere = false;
+                selectedFourIndex = -1;
             }
 
-            if(selectedAnywhere)
+            if (selectedAnywhere)
             {
                 selectedStackCard = false;
             }
@@ -2205,6 +2213,7 @@ namespace Solitaire
             else
             {
                 selectedPotCard = false;
+                selectedFourIndex = -1;
             }
 
             if (selectedPotCard || continuePot) {
@@ -2678,6 +2687,8 @@ namespace Solitaire
 
                     selectedStackIndex = insertStack1;
 
+                    selectedFourIndex = insertStack1;
+
                     if (selectedStackIndex < 0)
                         selectedStackIndex = 0;
 
@@ -2693,6 +2704,8 @@ namespace Solitaire
                     selectedStack = 2;
 
                     selectedStackIndex = insertStack2;
+
+                    selectedFourIndex = insertStack2;
 
                     if (selectedStackIndex < 0)
                         selectedStackIndex = 0;
@@ -2710,6 +2723,8 @@ namespace Solitaire
 
                     selectedStackIndex = insertStack3;
 
+                    selectedFourIndex = insertStack3;
+
                     if (selectedStackIndex < 0)
                         selectedStackIndex = 0;
 
@@ -2725,6 +2740,8 @@ namespace Solitaire
                     selectedStack = 4;
 
                     selectedStackIndex = insertStack4;
+
+                    selectedFourIndex = insertStack4;
 
                     if (selectedStackIndex < 0)
                         selectedStackIndex = 0;
@@ -2850,6 +2867,8 @@ namespace Solitaire
 
                         selectedPasteIndex = i;
 
+                        selectedFourIndex = -1;
+
                         return true;
                     }
                     else
@@ -2868,6 +2887,8 @@ namespace Solitaire
                         selectedPaste = 2;
 
                         selectedPasteIndex = i;
+
+                        selectedFourIndex = -1;
 
                         return true;
                     }
@@ -2888,6 +2909,8 @@ namespace Solitaire
 
                         selectedPasteIndex = i;
 
+                        selectedFourIndex = -1;
+
                         return true;
                     }
                     else
@@ -2906,6 +2929,8 @@ namespace Solitaire
                         selectedPaste = 4;
 
                         selectedPasteIndex = i;
+
+                        selectedFourIndex = -1;
 
                         return true;
                     }
@@ -2926,6 +2951,8 @@ namespace Solitaire
 
                         selectedPasteIndex = i;
 
+                        selectedFourIndex = -1;
+
                         return true;
                     }
                     else
@@ -2945,6 +2972,8 @@ namespace Solitaire
 
                         selectedPasteIndex = i;
 
+                        selectedFourIndex = -1;
+
                         return true;
                     }
                     else
@@ -2963,6 +2992,8 @@ namespace Solitaire
                         selectedPaste = 7;
 
                         selectedPasteIndex = i;
+
+                        selectedFourIndex = -1;
 
                         return true;
                     }
@@ -3385,42 +3416,49 @@ namespace Solitaire
             SpriteBatchEx.DrawLine(spriteBatch, new Vector2(680, 20), new Vector2(680, 180), Color.White, 1);
 
 
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(200, 220), new Vector2(280, 220), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(200, 380), new Vector2(280, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(200, 220), new Vector2(200, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(280, 220), new Vector2(280, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(200 + 10, 220), new Vector2(280 + 10, 220), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(200 + 10, 380), new Vector2(280 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(200 + 10, 220), new Vector2(200 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(280 + 10, 220), new Vector2(280 + 10, 380), Color.White, 1);
 
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(300, 220), new Vector2(380, 220), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(300, 380), new Vector2(380, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(300, 220), new Vector2(300, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(380, 220), new Vector2(380, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(300 + 10, 220), new Vector2(380 + 10, 220), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(300 + 10, 380), new Vector2(380 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(300 + 10, 220), new Vector2(300 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(380 + 10, 220), new Vector2(380 + 10, 380), Color.White, 1);
 
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(400, 220), new Vector2(480, 220), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(400, 380), new Vector2(480, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(400, 220), new Vector2(400, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(480, 220), new Vector2(480, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(400 + 10, 220), new Vector2(480 + 10, 220), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(400 + 10, 380), new Vector2(480 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(400 + 10, 220), new Vector2(400 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(480 + 10, 220), new Vector2(480 + 10, 380), Color.White, 1);
 
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(500, 220), new Vector2(580, 220), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(500, 380), new Vector2(580, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(500, 220), new Vector2(500, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(580, 220), new Vector2(580, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(500 + 10, 220), new Vector2(580 + 10, 220), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(500 + 10, 380), new Vector2(580 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(500 + 10, 220), new Vector2(500 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(580 + 10, 220), new Vector2(580 + 10, 380), Color.White, 1);
 
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(600, 220), new Vector2(680, 220), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(600, 380), new Vector2(680, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(600, 220), new Vector2(600, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(680, 220), new Vector2(680, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(600 + 10, 220), new Vector2(680 + 10, 220), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(600 + 10, 380), new Vector2(680 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(600 + 10, 220), new Vector2(600 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(680 + 10, 220), new Vector2(680 + 10, 380), Color.White, 1);
 
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(700, 220), new Vector2(780, 220), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(700, 380), new Vector2(780, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(700, 220), new Vector2(700, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(780, 220), new Vector2(780, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(700 + 10, 220), new Vector2(780 + 10, 220), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(700 + 10, 380), new Vector2(780 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(700 + 10, 220), new Vector2(700 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(780 + 10, 220), new Vector2(780 + 10, 380), Color.White, 1);
 
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(800, 220), new Vector2(880, 220), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(800, 380), new Vector2(880, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(800, 220), new Vector2(800, 380), Color.White, 1);
-            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(880, 220), new Vector2(880, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(800 + 10, 220), new Vector2(880 + 10, 220), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(800 + 10, 380), new Vector2(880 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(800 + 10, 220), new Vector2(800 + 10, 380), Color.White, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(880 + 10, 220), new Vector2(880 + 10, 380), Color.White, 1);
 
             spriteBatch.DrawString(spriteFont, "Rules?", new Vector2(20, 400), Color.White);
+
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(17 - 10, 500), new Vector2(210 - 10, 500), Color.Red, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(17 - 10, 530), new Vector2(210 - 10, 530), Color.Red, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(17 - 10, 500), new Vector2(17 - 10, 530), Color.Red, 1);
+            SpriteBatchEx.DrawLine(spriteBatch, new Vector2(210 - 10, 500), new Vector2(210 - 10, 530), Color.Red, 1);
+
+            spriteBatch.DrawString(spriteFont, "SOLITAIRE", new Vector2(20 - 10, 500), Color.Black);
 
             spriteBatch.Draw(beginPlayT, new Rectangle(20, 200, 80, 80), Color.White);
 
@@ -3456,7 +3494,7 @@ namespace Solitaire
                 {
                     if (stack1[i].whatplace.Equals("stak1"))
                     {
-                        stack1[i].place = new Rectangle(200, 220 + count1++ * 25, 80, 160);
+                        stack1[i].place = new Rectangle(210, 220 + count1++ * 25, 80, 160);
                         if (stack1[i].back)
                         {
                             spriteBatch.Draw(back, stack1[i].place, Color.White);
@@ -3472,7 +3510,7 @@ namespace Solitaire
                 {
                     if (stack2[i].whatplace.Equals("stak2"))
                     {
-                        stack2[i].place = new Rectangle(300, 220 + count2++ * 25, 80, 160);
+                        stack2[i].place = new Rectangle(310, 220 + count2++ * 25, 80, 160);
                         if (stack2[i].back)
                         {
                             spriteBatch.Draw(back, stack2[i].place, Color.White);
@@ -3488,7 +3526,7 @@ namespace Solitaire
                 {
                     if (stack3[i].whatplace.Equals("stak3"))
                     {
-                        stack3[i].place = new Rectangle(400, 220 + count3++ * 25, 80, 160);
+                        stack3[i].place = new Rectangle(410, 220 + count3++ * 25, 80, 160);
                         if (stack3[i].back)
                         {
                             spriteBatch.Draw(back, stack3[i].place, Color.White);
@@ -3504,7 +3542,7 @@ namespace Solitaire
                 {
                     if (stack4[i].whatplace.Equals("stak4"))
                     {
-                        stack4[i].place = new Rectangle(500, 220 + count4++ * 25, 80, 160);
+                        stack4[i].place = new Rectangle(510, 220 + count4++ * 25, 80, 160);
                         if (stack4[i].back)
                         {
                             spriteBatch.Draw(back, stack4[i].place, Color.White);
@@ -3520,7 +3558,7 @@ namespace Solitaire
                 {
                     if (stack5[i].whatplace.Equals("stak5"))
                     {
-                        stack5[i].place = new Rectangle(600, 220 + count5++ * 25, 80, 160);
+                        stack5[i].place = new Rectangle(610, 220 + count5++ * 25, 80, 160);
                         if (stack5[i].back)
                         {
                             spriteBatch.Draw(back, stack5[i].place, Color.White);
@@ -3536,7 +3574,7 @@ namespace Solitaire
                 {
                     if (stack6[i].whatplace.Equals("stak6"))
                     {
-                        stack6[i].place = new Rectangle(700, 220 + count6++ * 25, 80, 160);
+                        stack6[i].place = new Rectangle(710, 220 + count6++ * 25, 80, 160);
                         if (stack6[i].back)
                         {
                             spriteBatch.Draw(back, stack6[i].place, Color.White);
@@ -3552,7 +3590,7 @@ namespace Solitaire
                 {
                     if (stack7[i].whatplace.Equals("stak7"))
                     {
-                        stack7[i].place = new Rectangle(800, 220 + count7++ * 25, 80, 160);
+                        stack7[i].place = new Rectangle(810, 220 + count7++ * 25, 80, 160);
                         if (stack7[i].back)
                         {
                             spriteBatch.Draw(back, stack7[i].place, Color.White);
@@ -3568,36 +3606,48 @@ namespace Solitaire
                 {
                     if (stack[i].whatplace.Equals("stack1"))
                     {
-                        stack[i].place = new Rectangle(300, 20, 80, 160);
-                        card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
-                        spriteBatch.Draw(card, stack[i].place, Color.White);
+                        if (selectedFourIndex == -1 || i < stack.Count - 1)
+                        {
+                            stack[i].place = new Rectangle(300, 20, 80, 160);
+                            card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
+                            spriteBatch.Draw(card, stack[i].place, Color.White);
+                        }
                     }
                 }
                 for (int i = 0; i < stack.Count && stack.Count > 0; i++)
                 {
                     if (stack[i].whatplace.Equals("stack2"))
                     {
-                        stack[i].place = new Rectangle(400, 20, 80, 160);
-                        card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
-                        spriteBatch.Draw(card, stack[i].place, Color.White);
+                        if (selectedFourIndex == -1 || i < stack.Count - 1)
+                        {
+                            stack[i].place = new Rectangle(400, 20, 80, 160);
+                            card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
+                            spriteBatch.Draw(card, stack[i].place, Color.White);
+                        }
                     }
                 }
                 for (int i = 0; i < stack.Count && stack.Count > 0; i++)
                 {
                     if (stack[i].whatplace.Equals("stack3"))
                     {
-                        stack[i].place = new Rectangle(500, 20, 80, 160);
-                        card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
-                        spriteBatch.Draw(card, stack[i].place, Color.White);
+                        if (selectedFourIndex == -1 || i < stack.Count - 1)
+                        {
+                            stack[i].place = new Rectangle(500, 20, 80, 160);
+                            card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
+                            spriteBatch.Draw(card, stack[i].place, Color.White);
+                        }
                     }
                 }
                 for (int i = 0; i < stack.Count && stack.Count > 0; i++)
                 {
                     if (stack[i].whatplace.Equals("stack4"))
                     {
-                        stack[i].place = new Rectangle(600, 20, 80, 160);
-                        card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
-                        spriteBatch.Draw(card, stack[i].place, Color.White);
+                        if (selectedFourIndex == -1 || i < stack.Count - 1)
+                        {
+                            stack[i].place = new Rectangle(600, 20, 80, 160);
+                            card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
+                            spriteBatch.Draw(card, stack[i].place, Color.White);
+                        }
                     }
                 }
             }
@@ -3702,9 +3752,12 @@ namespace Solitaire
                     {
                         if (stack1[i].whatplace.Equals("stak1"))
                         {
-                            card = Content.Load<Texture2D>(stack1[i].suit + "-" + stack1[i].rank);
-                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                            yy += 25;
+                            if (selectedFourIndex != -1 || i < stack1.Count - 1)
+                            {
+                                card = Content.Load<Texture2D>(stack1[i].suit + "-" + stack1[i].rank);
+                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                                yy += 25;
+                            }
                         }
                     }
                     yy = 0;
@@ -3713,9 +3766,12 @@ namespace Solitaire
                     {
                         if (stack2[i].whatplace.Equals("stak2"))
                         {
-                            card = Content.Load<Texture2D>(stack2[i].suit + "-" + stack2[i].rank);
-                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                            yy += 25;
+                            if (selectedFourIndex != -1 || i < stack2.Count - 1)
+                            {
+                                card = Content.Load<Texture2D>(stack2[i].suit + "-" + stack2[i].rank);
+                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                                yy += 25;
+                            }
                         }
                     }
                     yy = 0;
@@ -3724,9 +3780,12 @@ namespace Solitaire
                     {
                         if (stack3[i].whatplace.Equals("stak3"))
                         {
-                            card = Content.Load<Texture2D>(stack3[i].suit + "-" + stack3[i].rank);
-                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                            yy += 25;
+                            if (selectedFourIndex != -1 || i < stack3.Count - 1)
+                            {
+                                card = Content.Load<Texture2D>(stack3[i].suit + "-" + stack3[i].rank);
+                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                                yy += 25;
+                            }
                         }
                     }
                     yy = 0;
@@ -3735,9 +3794,12 @@ namespace Solitaire
                     {
                         if (stack4[i].whatplace.Equals("stak4"))
                         {
-                            card = Content.Load<Texture2D>(stack4[i].suit + "-" + stack4[i].rank);
-                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                            yy += 25;
+                            if (selectedFourIndex != -1 || i < stack4.Count - 1)
+                            {
+                                card = Content.Load<Texture2D>(stack4[i].suit + "-" + stack4[i].rank);
+                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                                yy += 25;
+                            }
                         }
                     }
                     yy = 0;
@@ -3746,9 +3808,12 @@ namespace Solitaire
                     {
                         if (stack5[i].whatplace.Equals("stak5"))
                         {
-                            card = Content.Load<Texture2D>(stack5[i].suit + "-" + stack5[i].rank);
-                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                            yy += 25;
+                            if (selectedFourIndex != -1 || i < stack5.Count - 1)
+                            {
+                                card = Content.Load<Texture2D>(stack5[i].suit + "-" + stack5[i].rank);
+                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                                yy += 25;
+                            }
                         }
                     }
                     yy = 0;
@@ -3757,9 +3822,12 @@ namespace Solitaire
                     {
                         if (stack6[i].whatplace.Equals("stak6"))
                         {
-                            card = Content.Load<Texture2D>(stack6[i].suit + "-" + stack6[i].rank);
-                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                            yy += 25;
+                            if (selectedFourIndex != -1 || i < stack6.Count - 1)
+                            {
+                                card = Content.Load<Texture2D>(stack6[i].suit + "-" + stack6[i].rank);
+                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                                yy += 25;
+                            }
                         }
                     }
                     yy = 0;
@@ -3768,9 +3836,12 @@ namespace Solitaire
                     {
                         if (stack7[i].whatplace.Equals("stak7"))
                         {
-                            card = Content.Load<Texture2D>(stack7[i].suit + "-" + stack7[i].rank);
-                            spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
-                            yy += 25;
+                            if (selectedFourIndex != -1 || i < stack7.Count - 1)
+                            {
+                                card = Content.Load<Texture2D>(stack7[i].suit + "-" + stack7[i].rank);
+                                spriteBatch.Draw(card, new Rectangle(currentMousePosition.X, currentMousePosition.Y + yy, 80, 160), Color.White);
+                                yy += 25;
+                            }
                         }
                     }
                 }
