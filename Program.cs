@@ -1,12 +1,11 @@
-﻿#region Using Statements
-using System;
+﻿using System;
+using System.Windows.Forms;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
-#endregion
 
 namespace Solitaire
 {
-#if WINDOWS || LINUX
     /// <summary>
     /// The main class.
     /// </summary>
@@ -18,9 +17,9 @@ namespace Solitaire
         [STAThread]
         static void Main()
         {
+            SplashForm splashForm = new SplashForm();
             using (var game = new Game1())
                 game.Run();
         }
     }
-#endif
 }
