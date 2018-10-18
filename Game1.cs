@@ -41,9 +41,6 @@ namespace Solitaire
         Texture2D card;
         Texture2D back;
         Texture2D beginPlayT;
-        Texture2D leftClick;
-        Texture2D rightClick;
-        Texture2D drop;
 
         MouseState _currentMouseState;
         MouseState _previousMouseState;
@@ -60,10 +57,6 @@ namespace Solitaire
         bool selectedAnywhere = false;
         bool doHoverNext = false;
         bool doLeftClickMat = false;
-        bool doHoverPot1 = false;
-        bool doHoverPot2 = false;
-        bool doHoverPot3 = false;
-        bool doHoverPot4 = false;
 
         int countStack1 = 0, countStack2 = 0, countStack3 = 0, countStack4 = 0;
         int insertStack1 = -1, insertStack2 = -1, insertStack3 = -1, insertStack4 = -1;
@@ -118,9 +111,6 @@ namespace Solitaire
             bg = Content.Load<Texture2D>("bg");
             pot = Content.Load<Texture2D>("pot");
             cursorTex = Content.Load<Texture2D>("mouseHand");
-            leftClick = Content.Load<Texture2D>("leftClick");
-            rightClick = Content.Load<Texture2D>("rightClick");
-            drop = Content.Load<Texture2D>("drop");
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
             back = Content.Load<Texture2D>("back");
             beginPlayT = Content.Load<Texture2D>("playBtn");
@@ -2020,7 +2010,7 @@ namespace Solitaire
 
                 int ccnn7 = 0;
 
-                if (_previousMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Released && _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
+                if (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released && _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
                 {
                     if (mystack == null)
                         mystack = new List<Card>();
@@ -2311,18 +2301,18 @@ namespace Solitaire
                     }
                 }
 
-                if (_previousMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
+                if (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
                 {
                     return true;
                 }
                 else
                 {
-                    if (stkChanged && _previousMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Released && _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
+                    if (stkChanged && _previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released && _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
                         return true;
 
                     if (!selectStackPaste())
                     {
-                        if (_previousMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Released && _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Released)
+                        if (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released && _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released)
                         {
                             if (mystack.Count > 0)
                             {
@@ -2373,13 +2363,13 @@ namespace Solitaire
                     }
                     else
                     {
-                        if (_previousMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Released)
+                        if (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released)
                         {
                             return true;
                         }
                     }
 
-                    if (_previousMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Released && _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Released)
+                    if (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released && _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released)
                         return false;
 
                     return false;
@@ -2397,14 +2387,6 @@ namespace Solitaire
 
         private bool selectPotCard()
         {
-            doHoverPot1 = false;
-
-            doHoverPot2 = false;
-
-            doHoverPot3 = false;
-
-            doHoverPot4 = false;
-
             Rectangle somRectangle1 = new Rectangle(300, 20, 80, 160);
 
             Rectangle are1 = somRectangle1;
@@ -2413,7 +2395,6 @@ namespace Solitaire
 
             if (are1.Contains(mousePosition1))
             {
-                doHoverPot1 = true;
                 showCursor = true;
                 this.IsMouseVisible = false;
             }
@@ -2432,7 +2413,6 @@ namespace Solitaire
 
             if (are1.Contains(mousePosition1))
             {
-                doHoverPot2 = true;
                 showCursor = true;
                 this.IsMouseVisible = false;
             }
@@ -2451,7 +2431,6 @@ namespace Solitaire
 
             if (are1.Contains(mousePosition1))
             {
-                doHoverPot3 = true;
                 showCursor = true;
                 this.IsMouseVisible = false;
             }
@@ -2470,7 +2449,6 @@ namespace Solitaire
 
             if (are1.Contains(mousePosition1))
             {
-                doHoverPot4 = true;
                 showCursor = true;
                 this.IsMouseVisible = false;
             }
@@ -2483,7 +2461,7 @@ namespace Solitaire
                 }
             }
 
-            if (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released && _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
+            if (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released && _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
             {
                 if (cards == null)
                     return false;
@@ -2753,7 +2731,7 @@ namespace Solitaire
         {
             if ((_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released)
                 ||
-                (_previousMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Released))
+                (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released))
             {
 
                 if (cards == null)
@@ -3255,8 +3233,8 @@ namespace Solitaire
             if ((_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && 
                 _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released)
                 ||
-                (_previousMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed &&
-                _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Released))
+                (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed &&
+                _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released))
             {
                 if (cards == null)
                     return false;
@@ -3697,107 +3675,30 @@ namespace Solitaire
             if (stakHover.Equals("stak1"))
             {
                 SpriteBatchEx.DrawLine(spriteBatch, new Vector2(210, 210), new Vector2(290, 210), Color.Gray, 1);
-
-                if (mystack.Count == 0 && !selectedMatCard && selectedPIndex == -1)
-                    spriteBatch.Draw(rightClick, new Vector2(210 - 4, 187), Color.White);
-                else if (mystack.Count == 0 && (s_matCard || s_potCard))
-                    spriteBatch.Draw(drop, new Vector2(210 - 4, 187), Color.White);
-                else if (mystack.Count > 0 && !selectedMatCard)
-                    spriteBatch.Draw(drop, new Vector2(210 - 4, 187), Color.White);
-                else
-                {
-                    spriteBatch.Draw(rightClick, new Vector2(210 - 4, 187), Color.White);
-                }
             }
             else if (stakHover.Equals("stak2"))
             {
                 SpriteBatchEx.DrawLine(spriteBatch, new Vector2(310, 210), new Vector2(390, 210), Color.Gray, 1);
-
-                if (mystack.Count == 0 && !selectedMatCard && selectedPIndex == -1)
-                    spriteBatch.Draw(rightClick, new Vector2(310 - 4, 187), Color.White);
-                else if (mystack.Count == 0 && (s_matCard || s_potCard))
-                    spriteBatch.Draw(drop, new Vector2(310 - 4, 187), Color.White);
-                else if (mystack.Count > 0 && !selectedMatCard)
-                    spriteBatch.Draw(drop, new Vector2(310 - 4, 187), Color.White);
-                else
-                {
-                    spriteBatch.Draw(rightClick, new Vector2(310 - 4, 187), Color.White);
-                }
             }
             else if (stakHover.Equals("stak3"))
             {
                 SpriteBatchEx.DrawLine(spriteBatch, new Vector2(410, 210), new Vector2(490, 210), Color.Gray, 1);
-
-                if (mystack.Count == 0 && !selectedMatCard && selectedPIndex == -1)
-                    spriteBatch.Draw(rightClick, new Vector2(410 - 4, 187), Color.White);
-                else if (mystack.Count == 0 && (s_matCard || s_potCard))
-                    spriteBatch.Draw(drop, new Vector2(410 - 4, 187), Color.White);
-                else if (mystack.Count > 0 && !selectedMatCard)
-                    spriteBatch.Draw(drop, new Vector2(410 - 4, 187), Color.White);
-                else
-                {
-                    spriteBatch.Draw(rightClick, new Vector2(410 - 4, 187), Color.White);
-                }
             }
             else if (stakHover.Equals("stak4"))
             {
                 SpriteBatchEx.DrawLine(spriteBatch, new Vector2(510, 210), new Vector2(590, 210), Color.Gray, 1);
-
-                if (mystack.Count == 0 && !selectedMatCard && selectedPIndex == -1)
-                    spriteBatch.Draw(rightClick, new Vector2(510 - 4, 187), Color.White);
-                else if (mystack.Count == 0 && (s_matCard || s_potCard))
-                    spriteBatch.Draw(drop, new Vector2(510 - 4, 187), Color.White);
-                else if (mystack.Count > 0 && !selectedMatCard)
-                    spriteBatch.Draw(drop, new Vector2(510 - 4, 187), Color.White);
-                else
-                {
-                    spriteBatch.Draw(rightClick, new Vector2(510 - 4, 187), Color.White);
-                }
             }
             else if (stakHover.Equals("stak5"))
             {
                 SpriteBatchEx.DrawLine(spriteBatch, new Vector2(610, 210), new Vector2(690, 210), Color.Gray, 1);
-
-                if (mystack.Count == 0 && !selectedMatCard && selectedPIndex == -1)
-                    spriteBatch.Draw(rightClick, new Vector2(610 - 4, 187), Color.White);
-                else if (mystack.Count == 0 && (s_matCard || s_potCard))
-                    spriteBatch.Draw(drop, new Vector2(610 - 4, 187), Color.White);
-                else if (mystack.Count > 0 && !selectedMatCard)
-                    spriteBatch.Draw(drop, new Vector2(610 - 4, 187), Color.White);
-                else
-                {
-                    spriteBatch.Draw(rightClick, new Vector2(610 - 4, 187), Color.White);
-                }
             }
             else if (stakHover.Equals("stak6"))
             {
                 SpriteBatchEx.DrawLine(spriteBatch, new Vector2(710, 210), new Vector2(790, 210), Color.Gray, 1);
-
-                if (mystack.Count == 0 && !selectedMatCard && selectedPIndex == -1)
-                    spriteBatch.Draw(rightClick, new Vector2(710 - 4, 187), Color.White);
-                else if (mystack.Count == 0 && (s_matCard || s_potCard))
-                    spriteBatch.Draw(drop, new Vector2(710 - 4, 187), Color.White);
-                else if (mystack.Count > 0 && !selectedMatCard)
-                    spriteBatch.Draw(drop, new Vector2(710 - 4, 187), Color.White);
-                else
-                {
-                    spriteBatch.Draw(rightClick, new Vector2(710 - 4, 187), Color.White);
-                }
             }
             else if (stakHover.Equals("stak7"))
             {
                 SpriteBatchEx.DrawLine(spriteBatch, new Vector2(810, 210), new Vector2(890, 210), Color.Gray, 1);
-
-                if(mystack.Count == 0 && !selectedMatCard && selectedPIndex == -1)
-                    spriteBatch.Draw(rightClick, new Vector2(810 - 4, 187), Color.White);
-                else if (mystack.Count == 0 && (s_matCard || s_potCard))
-                    spriteBatch.Draw(drop, new Vector2(810 - 4, 187), Color.White);
-                else if (mystack.Count > 0 && !selectedMatCard)
-                    spriteBatch.Draw(drop, new Vector2(810 - 4, 187), Color.White);
-                else
-                {
-                    spriteBatch.Draw(rightClick, new Vector2(810 - 4, 187), Color.White);
-                }
             }
 
             this.Window.Title = "Solitaire Next";
@@ -3979,7 +3880,7 @@ namespace Solitaire
             }
 
             if (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released &&
-                _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
+                _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
             {
                 var mousePosition = new Point(_currentMouseState.X, _currentMouseState.Y);
 
@@ -4022,8 +3923,8 @@ namespace Solitaire
 
             try
             {
-                if (_previousMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed &&
-                    _currentMouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
+                if (_previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed &&
+                    _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
                 if (selectedStack == -2 || selectedPIndex != -1)
                 {
                     if (whichstack.Equals("stack1"))
@@ -4081,52 +3982,6 @@ namespace Solitaire
                     yy += 25;
                 }
             }
-
-            try
-            {
-                if (doHoverPot1)
-                {
-                    if (mystack.Count > 0 || selectedMatCard)
-                        spriteBatch.Draw(drop, new Vector2(295, 2), Color.White);
-                    else
-                        spriteBatch.Draw(rightClick, new Vector2(295, 2), Color.White);
-                }
-
-                if (doHoverPot2)
-                {
-                    if (mystack.Count > 0 || selectedMatCard)
-                        spriteBatch.Draw(drop, new Vector2(395, 2), Color.White);
-                    else
-                        spriteBatch.Draw(rightClick, new Vector2(395, 2), Color.White);
-                }
-
-                if (doHoverPot3)
-                {
-                    if (mystack.Count > 0 || selectedMatCard)
-                        spriteBatch.Draw(drop, new Vector2(495, 2), Color.White);
-                    else
-                        spriteBatch.Draw(rightClick, new Vector2(495, 2), Color.White);
-                }
-
-                if (doHoverPot4)
-                {
-                    if (mystack.Count > 0 || selectedMatCard)
-                        spriteBatch.Draw(drop, new Vector2(595, 2), Color.White);
-                    else
-                        spriteBatch.Draw(rightClick, new Vector2(595, 2), Color.White);
-                }
-
-                if (doHoverNext)
-                {
-                    spriteBatch.Draw(leftClick, new Vector2(80, 2), Color.White);
-                }
-
-                if (doLeftClickMat)
-                {
-                    spriteBatch.Draw(leftClick, new Vector2(160, 2), Color.White);
-                }
-            }
-            catch (Exception e) {String str=e.Message;}
 
             if (s_matCard && selectedStack != -2)
             {
