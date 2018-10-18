@@ -17,6 +17,7 @@ namespace Solitaire
         Boolean showCursor = false;
         Texture2D cursorTex;
         Texture2D bg;
+        Texture2D pot;
         Boolean clickNext = false;
         Boolean s_matCard = false;
         Boolean s_potCard = false;
@@ -115,6 +116,7 @@ namespace Solitaire
 
             // TODO: use this.Content to load your game content here
             bg = Content.Load<Texture2D>("bg");
+            pot = Content.Load<Texture2D>("pot");
             cursorTex = Content.Load<Texture2D>("mouseHand");
             leftClick = Content.Load<Texture2D>("leftClick");
             rightClick = Content.Load<Texture2D>("rightClick");
@@ -3687,7 +3689,12 @@ namespace Solitaire
             SpriteBatchEx.DrawLine(spriteBatch, new Vector2(800 + 10, 220), new Vector2(800 + 10, 380), Color.YellowGreen, 1);
             SpriteBatchEx.DrawLine(spriteBatch, new Vector2(880 + 10, 220), new Vector2(880 + 10, 380), Color.YellowGreen, 1);
 
-            if(stakHover.Equals("stak1"))
+            spriteBatch.Draw(pot, new Rectangle(300, 20, 80, 160), Color.White);
+            spriteBatch.Draw(pot, new Rectangle(400, 20, 80, 160), Color.White);
+            spriteBatch.Draw(pot, new Rectangle(500, 20, 80, 160), Color.White);
+            spriteBatch.Draw(pot, new Rectangle(600, 20, 80, 160), Color.White);
+
+            if (stakHover.Equals("stak1"))
             {
                 SpriteBatchEx.DrawLine(spriteBatch, new Vector2(210, 210), new Vector2(290, 210), Color.Gray, 1);
 
