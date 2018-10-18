@@ -302,290 +302,282 @@ namespace Solitaire
                 selectedMatCard = true;
                 s_matCard = true;
                 selectedFourIndex = -1;
-                //selectedStack = -1;
             }
 
-            if (1 == 1 || selectedMatCard && selectedStack == -10)
+            try
             {
-                if (1 == 1 || _previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed &&
-                    _currentMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released)
+                if (selectedPasteIndex != -1)
+                {
+                    if (selectedPaste == 1 && selectedPasteIndex == stack1.Count - 1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == stack1[stack1.Count - 1].rank - 1)
+                        {
+                            stack1.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack1[stack1.Count - 1].back = false;
+                            stack1[stack1.Count - 1].whatplace = "stak1";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPaste == 2 && selectedPasteIndex == stack2.Count - 1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == stack2[stack2.Count - 1].rank - 1)
+                        {
+                            stack2.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack2[stack2.Count - 1].back = false;
+                            stack2[stack2.Count - 1].whatplace = "stak2";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPaste == 3 && selectedPasteIndex == stack3.Count - 1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == stack3[stack3.Count - 1].rank - 1)
+                        {
+                            stack3.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack3[stack3.Count - 1].back = false;
+                            stack3[stack3.Count - 1].whatplace = "stak3";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPaste == 4 && selectedPasteIndex == stack4.Count - 1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == stack4[stack4.Count - 1].rank - 1)
+                        {
+                            stack4.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack4[stack4.Count - 1].back = false;
+                            stack4[stack4.Count - 1].whatplace = "stak4";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPaste == 5 && selectedPasteIndex == stack5.Count - 1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == stack5[stack5.Count - 1].rank - 1)
+                        {
+                            stack5.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack5[stack5.Count - 1].back = false;
+                            stack5[stack5.Count - 1].whatplace = "stak5";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPaste == 6 && selectedPasteIndex == stack6.Count - 1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == stack6[stack6.Count - 1].rank - 1)
+                        {
+                            stack6.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack6[stack6.Count - 1].back = false;
+                            stack6[stack6.Count - 1].whatplace = "stak6";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPaste == 7 && selectedPasteIndex == stack7.Count - 1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == stack7[stack7.Count - 1].rank - 1)
+                        {
+                            stack7.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack7[stack7.Count - 1].back = false;
+                            stack7[stack7.Count - 1].whatplace = "stak7";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                }
+                else if ((selectedPast == 1 && stack1.Count == 0) ||
+                    (selectedPast == 2 && stack2.Count == 0) ||
+                    (selectedPast == 3 && stack3.Count == 0) ||
+                    (selectedPast == 4 && stack4.Count == 0) ||
+                    (selectedPast == 5 && stack5.Count == 0) ||
+                    (selectedPast == 6 && stack6.Count == 0) ||
+                    (selectedPast == 7 && stack7.Count == 0))
+                {
+                    if (selectedPast == 1 && selectedPasteIndex == -1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                            cardsMat[cardsMat.Count - 1].rank == 1)
+                        {
+                            stack1.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack1[stack1.Count - 1].back = false;
+                            stack1[stack1.Count - 1].whatplace = "stak1";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPast == 2 && selectedPasteIndex == -1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                            cardsMat[cardsMat.Count - 1].rank == 1)
+                        {
+                            stack2.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack2[stack2.Count - 1].back = false;
+                            stack2[stack2.Count - 1].whatplace = "stak2";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPast == 3 && selectedPasteIndex == -1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                            cardsMat[cardsMat.Count - 1].rank == 1)
+                        {
+                            stack3.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack3[stack3.Count - 1].back = false;
+                            stack3[stack3.Count - 1].whatplace = "stak3";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPast == 4 && selectedPasteIndex == -1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                            cardsMat[cardsMat.Count - 1].rank == 1)
+                        {
+                            stack4.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack4[stack4.Count - 1].back = false;
+                            stack4[stack4.Count - 1].whatplace = "stak4";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPast == 5 && selectedPasteIndex == -1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                            cardsMat[cardsMat.Count - 1].rank == 1)
+                        {
+                            stack5.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack5[stack5.Count - 1].back = false;
+                            stack5[stack5.Count - 1].whatplace = "stak5";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPast == 6 && selectedPasteIndex == -1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                            cardsMat[cardsMat.Count - 1].rank == 1)
+                        {
+                            stack6.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack6[stack6.Count - 1].back = false;
+                            stack6[stack6.Count - 1].whatplace = "stak6";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                    if (selectedPast == 7 && selectedPasteIndex == -1)
+                    {
+                        if (cardsMat[cardsMat.Count - 1].rank == 13 ||
+                            cardsMat[cardsMat.Count - 1].rank == 1)
+                        {
+                            stack7.Add(cardsMat[cardsMat.Count - 1]);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            stack7[stack7.Count - 1].back = false;
+                            stack7[stack7.Count - 1].whatplace = "stak7";
+                            goNextMatCard();
+                            selectedMatCard = false;
+                            s_matCard = false;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                String str = e.Message;
+            }
+
+            if (stackClick())
+            {
+                int countStack = 0;
+                for (int i = 0; i < stack.Count; i++)
+                {
+                    Card card = stack[i];
+                    if (card.whatplace.Equals(whichstack))
+                    {
+                        countStack++;
+                    }
+                }
+                if (curentCard != cardsMat.Count - 1 && curentCard > cardsMat.Count - 1)
+                {
+                    curentCard = curentCard - 24;
+                }
+                if(curentCard < 0)
+                {
+                    if (cardsMat.Count == 0)
+                        curentCard = 0;
+                    else if (cardsMat.Count > 0)
+                        curentCard = cardsMat.Count - 1;
+                }
+                if (cardsMat.Count > 0 && smat)
                 {
                     try
                     {
-                        if (selectedPasteIndex != -1)
+                        if (countStack == 0 && cardsMat[cardsMat.Count - 1].card.Equals("ace"))
                         {
-                            if (selectedPaste == 1 && selectedPasteIndex == stack1.Count - 1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == stack1[stack1.Count - 1].rank - 1)
-                                {
-                                    stack1.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack1[stack1.Count - 1].back = false;
-                                    stack1[stack1.Count - 1].whatplace = "stak1";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
-                            if (selectedPaste == 2 && selectedPasteIndex == stack2.Count - 1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == stack2[stack2.Count - 1].rank - 1)
-                                {
-                                    stack2.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack2[stack2.Count - 1].back = false;
-                                    stack2[stack2.Count - 1].whatplace = "stak2";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
-                            if (selectedPaste == 3 && selectedPasteIndex == stack3.Count - 1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == stack3[stack3.Count - 1].rank - 1)
-                                {
-                                    stack3.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack3[stack3.Count - 1].back = false;
-                                    stack3[stack3.Count - 1].whatplace = "stak3";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
-                            if (selectedPaste == 4 && selectedPasteIndex == stack4.Count - 1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == stack4[stack4.Count - 1].rank - 1)
-                                {
-                                    stack4.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack4[stack4.Count - 1].back = false;
-                                    stack4[stack4.Count - 1].whatplace = "stak4";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
-                            if (selectedPaste == 5 && selectedPasteIndex == stack5.Count - 1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == stack5[stack5.Count - 1].rank - 1)
-                                {
-                                    stack5.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack5[stack5.Count - 1].back = false;
-                                    stack5[stack5.Count - 1].whatplace = "stak5";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
-                            if (selectedPaste == 6 && selectedPasteIndex == stack6.Count - 1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == stack6[stack6.Count - 1].rank - 1)
-                                {
-                                    stack6.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack6[stack6.Count - 1].back = false;
-                                    stack6[stack6.Count - 1].whatplace = "stak6";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
-                            if (selectedPaste == 7 && selectedPasteIndex == stack7.Count - 1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == stack7[stack7.Count - 1].rank - 1)
-                                {
-                                    stack7.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack7[stack7.Count - 1].back = false;
-                                    stack7[stack7.Count - 1].whatplace = "stak7";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
+                            Card newCard = new Card();
+                            newCard.card = "ace";
+                            newCard.rank = cardsMat[cardsMat.Count - 1].rank;
+                            newCard.suit = cardsMat[cardsMat.Count - 1].suit;
+                            newCard.whatplace = whichstack;
+                            stack.Add(newCard);
+                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                            s_potCard = true;
+                            selectedStack = -2;
+                            s_matCard = false;
                         }
-                        else if ((selectedPast == 1 && stack1.Count == 0) ||
-                          (selectedPast == 2 && stack2.Count == 0) ||
-                          (selectedPast == 3 && stack3.Count == 0) ||
-                          (selectedPast == 4 && stack4.Count == 0) ||
-                          (selectedPast == 5 && stack5.Count == 0) ||
-                          (selectedPast == 6 && stack6.Count == 0) ||
-                          (selectedPast == 7 && stack7.Count == 0))
+                        else
                         {
-                            if (selectedPast == 1 && selectedPasteIndex == -1)
+                            int nets = -1;
+                            for (int i = 0; i < stack.Count; i++)
                             {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
-                                    cardsMat[cardsMat.Count - 1].rank == 1)
+                                Card card = stack[i];
+                                if (card.whatplace.Equals(whichstack))
                                 {
-                                    stack1.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack1[stack1.Count - 1].back = false;
-                                    stack1[stack1.Count - 1].whatplace = "stak1";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
+                                    if (cardsMat[cardsMat.Count - 1].rank - 1 == card.rank && card.suit.Equals(cardsMat[cardsMat.Count - 1].suit))
+                                        nets = i + 1;
                                 }
                             }
-                            if (selectedPast == 2 && selectedPasteIndex == -1)
+                            if (nets != -1)
                             {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
-                                    cardsMat[cardsMat.Count - 1].rank == 1)
-                                {
-                                    stack2.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack2[stack2.Count - 1].back = false;
-                                    stack2[stack2.Count - 1].whatplace = "stak2";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
-                            if (selectedPast == 3 && selectedPasteIndex == -1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
-                                    cardsMat[cardsMat.Count - 1].rank == 1)
-                                {
-                                    stack3.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack3[stack3.Count - 1].back = false;
-                                    stack3[stack3.Count - 1].whatplace = "stak3";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
-                            if (selectedPast == 4 && selectedPasteIndex == -1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
-                                    cardsMat[cardsMat.Count - 1].rank == 1)
-                                {
-                                    stack4.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack4[stack4.Count - 1].back = false;
-                                    stack4[stack4.Count - 1].whatplace = "stak4";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
-                            if (selectedPast == 5 && selectedPasteIndex == -1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
-                                    cardsMat[cardsMat.Count - 1].rank == 1)
-                                {
-                                    stack5.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack5[stack5.Count - 1].back = false;
-                                    stack5[stack5.Count - 1].whatplace = "stak5";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
-                            if (selectedPast == 6 && selectedPasteIndex == -1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
-                                    cardsMat[cardsMat.Count - 1].rank == 1)
-                                {
-                                    stack6.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack6[stack6.Count - 1].back = false;
-                                    stack6[stack6.Count - 1].whatplace = "stak6";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
-                            }
-                            if (selectedPast == 7 && selectedPasteIndex == -1)
-                            {
-                                if (cardsMat[cardsMat.Count - 1].rank == 13 ||
-                                    cardsMat[cardsMat.Count - 1].rank == 1)
-                                {
-                                    stack7.Add(cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    stack7[stack7.Count - 1].back = false;
-                                    stack7[stack7.Count - 1].whatplace = "stak7";
-                                    goNextMatCard();
-                                    selectedMatCard = false;
-                                    s_matCard = false;
-                                }
+                                cardsMat[cardsMat.Count - 1].whatplace = whichstack;
+                                stack.Insert(nets, cardsMat[cardsMat.Count - 1]);
+                                cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                s_potCard = true;
+                                selectedStack = -2;
+                                s_matCard = false;
                             }
                         }
                     }
                     catch (Exception e)
                     {
                         String str = e.Message;
-                    }
-                }
-
-                if (stackClick())
-                {
-                    int countStack = 0;
-                    for (int i = 0; i < stack.Count; i++)
-                    {
-                        Card card = stack[i];
-                        if (card.whatplace.Equals(whichstack))
-                        {
-                            countStack++;
-                        }
-                    }
-                    if (curentCard != cardsMat.Count - 1 && curentCard > cardsMat.Count - 1)
-                    {
-                        curentCard = curentCard - 24;
-                    }
-                    if(curentCard < 0)
-                    {
-                        if (cardsMat.Count == 0)
-                            curentCard = 0;
-                        else if (cardsMat.Count > 0)
-                            curentCard = cardsMat.Count - 1;
-                    }
-                    if (cardsMat.Count > 0 && smat)
-                    {
-                        try
-                        {
-                            if (countStack == 0 && cardsMat[cardsMat.Count - 1].card.Equals("ace"))
-                            {
-                                Card newCard = new Card();
-                                newCard.card = "ace";
-                                newCard.rank = cardsMat[cardsMat.Count - 1].rank;
-                                newCard.suit = cardsMat[cardsMat.Count - 1].suit;
-                                newCard.whatplace = whichstack;
-                                stack.Add(newCard);
-                                cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                s_potCard = true;
-                                selectedStack = -2;
-                                s_matCard = false;
-                            }
-                            else
-                            {
-                                int nets = -1;
-                                for (int i = 0; i < stack.Count; i++)
-                                {
-                                    Card card = stack[i];
-                                    if (card.whatplace.Equals(whichstack))
-                                    {
-                                        if (cardsMat[cardsMat.Count - 1].rank - 1 == card.rank && card.suit.Equals(cardsMat[cardsMat.Count - 1].suit))
-                                            nets = i + 1;
-                                    }
-                                }
-                                if (nets != -1)
-                                {
-                                    cardsMat[cardsMat.Count - 1].whatplace = whichstack;
-                                    stack.Insert(nets, cardsMat[cardsMat.Count - 1]);
-                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                                    s_potCard = true;
-                                    selectedStack = -2;
-                                    s_matCard = false;
-                                }
-                            }
-                        }
-                        catch (Exception e)
-                        {
-                            String str = e.Message;
-                        }
                     }
                 }
             }
