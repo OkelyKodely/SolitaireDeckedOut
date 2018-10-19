@@ -17,6 +17,7 @@ namespace Solitaire
         Boolean showCursor = false;
         Texture2D cursorTex;
         Texture2D[] bg = new Texture2D[137];
+        Texture2D[] bgg = new Texture2D[24];
         Texture2D pot;
         Boolean clickNext = false;
         Boolean s_matCard = false;
@@ -55,6 +56,7 @@ namespace Solitaire
         bool selectedPotCard = false;
         bool selectedStackCard = false;
         bool selectedAnywhere = false;
+        int iibgg = 0;
         int ii = 0;
         int cntt = 0;
 
@@ -110,6 +112,14 @@ namespace Solitaire
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            for (int i = 0; i < 24; i++)
+            {
+                string aa = "" + i;
+                if (aa.Length == 1)
+                    aa = "0" + aa;
+                bgg[i] = Content.Load<Texture2D>("frame_" + aa + "_delay-0.08s");
+            }
+
             for (int i = 0; i < 137; i++)
             {
                 string aaa = "" + i;
@@ -3726,17 +3736,23 @@ namespace Solitaire
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            spriteBatch.GraphicsDevice.Clear(Color.DarkGreen);
+            spriteBatch.Draw(bgg[iibgg], new Rectangle(0, 0, 900, 700), Color.White);
 
             spriteBatch.Draw(bg[ii], new Rectangle(700, 0, 200, 200), Color.White);
 
             if (cntt == 0)
+            {
+                iibgg++;
                 ii++;
+            }
 
             cntt++;
 
             if (cntt == 3)
                 cntt = 0;
+
+            if (iibgg == 24)
+                iibgg = 0;
 
             if (ii == 137)
                 ii = 0;
@@ -3840,8 +3856,8 @@ namespace Solitaire
                 SpriteBatchEx.DrawLine(spriteBatch, new Vector2(810, 210), new Vector2(890, 210), Color.Gray, 1);
             }
 
-            spriteBatch.DrawString(spriteFont, "By: OkelyKodely", new Vector2(170, 520), Color.YellowGreen);
-            spriteBatch.DrawString(spriteFont, "Email: dh.cho428@gmail.com", new Vector2(170, 580), Color.YellowGreen);
+            spriteBatch.DrawString(spriteFont, "By: OkelyKodely", new Vector2(170, 520), Color.Black);
+            spriteBatch.DrawString(spriteFont, "Email: dh.cho428@gmail.com", new Vector2(170, 580), Color.Black);
 
             if (hoverPlay == false)
                 spriteBatch.Draw(beginPlayT, new Rectangle(20, 220, 170, 80), Color.White);
