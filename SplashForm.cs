@@ -12,7 +12,7 @@ namespace Solitaire
     {
         public SplashForm()
         {
-            this.SetBounds(0, 0, 600, 500);
+            this.SetBounds(0, 0, 300, 220);
             this.ControlBox = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -21,17 +21,16 @@ namespace Solitaire
             this.FormBorderStyle = FormBorderStyle.None;
 
             Panel splashPanel = new Panel();
-            splashPanel.SetBounds(0, 0, 600, 500);
-            Size size = new Size(600, 500);
-            splashPanel.BackgroundImage = Image.FromFile("Content/splash.jpg");
+            splashPanel.SetBounds(0, 0, 300, 220);
+            Size size = new Size(300, 220);
+            splashPanel.BackgroundImage = Image.FromFile("Content/frame_136_delay-s.gif");
 
             Bitmap bmp = new Bitmap(splashPanel.BackgroundImage, size);
             splashPanel.BackgroundImage = bmp;
             this.Controls.Add(splashPanel);
             this.Show();
 
-            // pause 3 second
-            new System.Threading.ManualResetEvent(false).WaitOne(1000 * 3);
+            new System.Threading.ManualResetEvent(false).WaitOne(1000*3);
 
             this.Close();
         }

@@ -57,6 +57,8 @@ namespace Solitaire
         bool selectedAnywhere = false;
         bool doHoverNext = false;
         bool doLeftClickMat = false;
+        int ii = 0;
+        int cntt = 0;
 
         int countStack1 = 0, countStack2 = 0, countStack3 = 0, countStack4 = 0;
         int insertStack1 = -1, insertStack2 = -1, insertStack3 = -1, insertStack4 = -1;
@@ -78,6 +80,8 @@ namespace Solitaire
         public Game1()
             : base()
         {
+            this.Window.Title = "Solitaire Decked Out";
+
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = 900;
@@ -3294,37 +3298,65 @@ namespace Solitaire
             {
                 if (stack1.Count > 0)
                 {
-                    if (stack1[stack1.Count - 1].back)
+                    bool check = true;
+                    for (int i = 0; i < stack1.Count; i++)
+                        if (!stack1[i].back)
+                            check = false;
+                    if (check)
                         stack1[stack1.Count - 1].back = false;
                 }
                 if (stack2.Count > 0)
                 {
-                    if (stack2[stack2.Count - 1].back)
+                    bool check = true;
+                    for (int i = 0; i < stack2.Count; i++)
+                        if (!stack2[i].back)
+                            check = false;
+                    if (check)
                         stack2[stack2.Count - 1].back = false;
                 }
                 if (stack3.Count > 0)
                 {
-                    if (stack3[stack3.Count - 1].back)
+                    bool check = true;
+                    for (int i = 0; i < stack3.Count; i++)
+                        if (!stack3[i].back)
+                            check = false;
+                    if (check)
                         stack3[stack3.Count - 1].back = false;
                 }
                 if (stack4.Count > 0)
                 {
-                    if (stack4[stack4.Count - 1].back)
+                    bool check = true;
+                    for (int i = 0; i < stack4.Count; i++)
+                        if (!stack4[i].back)
+                            check = false;
+                    if (check)
                         stack4[stack4.Count - 1].back = false;
                 }
                 if (stack5.Count > 0)
                 {
-                    if (stack5[stack5.Count - 1].back)
+                    bool check = true;
+                    for (int i = 0; i < stack5.Count; i++)
+                        if (!stack5[i].back)
+                            check = false;
+                    if (check)
                         stack5[stack5.Count - 1].back = false;
                 }
                 if (stack6.Count > 0)
                 {
-                    if (stack6[stack6.Count - 1].back)
+                    bool check = true;
+                    for (int i = 0; i < stack6.Count; i++)
+                        if (!stack6[i].back)
+                            check = false;
+                    if (check)
                         stack6[stack6.Count - 1].back = false;
                 }
                 if (stack7.Count > 0)
                 {
-                    if (stack7[stack7.Count - 1].back)
+                    bool check = true;
+                    for (int i = 0; i < stack7.Count; i++)
+                        if (!stack7[i].back)
+                            check = false;
+                    if (check)
                         stack7[stack7.Count - 1].back = false;
                 }
             }
@@ -3792,19 +3824,21 @@ namespace Solitaire
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        int cntt = 0;
-        int ii = 0;
         protected override void Draw(GameTime gameTime)
         {
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            if(cntt == 0)
-                spriteBatch.Draw(bg[ii++], new Rectangle(0, 0, 900, 700), Color.WhiteSmoke);
+            spriteBatch.GraphicsDevice.Clear(Color.DarkGreen);
+
+            spriteBatch.Draw(bg[ii], new Rectangle(700, 0, 200, 200), Color.White);
+
+            if (cntt == 0)
+                ii++;
 
             cntt++;
 
-            if (cntt == 10)
+            if (cntt == 3)
                 cntt = 0;
 
             if (ii == 137)
@@ -3908,8 +3942,6 @@ namespace Solitaire
             {
                 SpriteBatchEx.DrawLine(spriteBatch, new Vector2(810, 210), new Vector2(890, 210), Color.Gray, 1);
             }
-
-            this.Window.Title = "Solitaire Next";
 
             spriteBatch.DrawString(spriteFont, "By: OkelyKodely", new Vector2(170, 520), Color.YellowGreen);
             spriteBatch.DrawString(spriteFont, "Email: dh.cho428@gmail.com", new Vector2(170, 580), Color.YellowGreen);
