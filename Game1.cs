@@ -324,7 +324,7 @@ namespace Solitaire
 
             try
             {
-                if (selectedPasteIndex != -1 && selectedPaste == selectedPast)
+                if (selectedPasteIndex != -1 && (selectedPaste == selectedPast || selectedPaste == 7 || selectedPaste == 6) && selectedPast != -1 && selectedPaste != -1)
                 {
                     if (selectedPaste == 1 && selectedPasteIndex == stack1.Count - 1)
                     {
@@ -2946,11 +2946,7 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    //if (selectedPaste != -1 && selectedS != 1)
-                        //revealBackCard();
-
-                    //if (selectedPaste != -1 && selectedS != 1)
-                        selectedPaste = 1;
+                    selectedPaste = 1;
 
                     selectedPasteIndex = -1;
 
@@ -2965,11 +2961,7 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    //if (selectedPaste != -1 && selectedS != 2)
-                        //revealBackCard();
-
-                    //if (selectedPaste != -1 && selectedS != 2)
-                        selectedPaste = 2;
+                    selectedPaste = 2;
 
                     selectedPasteIndex = -1;
 
@@ -2984,11 +2976,7 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    //if (selectedPaste != -1 && selectedS != 3)
-                        //revealBackCard();
-
-                    //if (selectedPaste != -1 && selectedS != 3)
-                        selectedPaste = 3;
+                    selectedPaste = 3;
 
                     selectedPasteIndex = -1;
 
@@ -3003,11 +2991,7 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    //if (selectedPaste != -1 && selectedS != 4)
-                        //revealBackCard();
-
-                    //if (selectedPaste != -1 && selectedS != 4)
-                        selectedPaste = 4;
+                    selectedPaste = 4;
 
                     selectedPasteIndex = -1;
 
@@ -3022,11 +3006,7 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    //if (selectedPaste != -1 && selectedS != 5)
-                        //revealBackCard();
-
-                    //if (selectedPaste != -1 && selectedS != 5)
-                        selectedPaste = 5;
+                    selectedPaste = 5;
 
                     selectedPasteIndex = -1;
 
@@ -3041,11 +3021,7 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    //if (selectedPaste != -1 && selectedS != 6)
-                        //revealBackCard();
-
-                    //if (selectedPaste != -1 && selectedS != 6)
-                        selectedPaste = 6;
+                    selectedPaste = 6;
 
                     selectedPasteIndex = -1;
 
@@ -3060,11 +3036,7 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    //if (selectedPaste != -1 && selectedS != 7)
-                        //revealBackCard();
-
-                    //if (selectedPaste != -1 && selectedS != 7)
-                        selectedPaste = 7;
+                    selectedPaste = 7;
 
                     selectedPasteIndex = -1;
 
@@ -3088,11 +3060,7 @@ namespace Solitaire
                     {
                         if (!stack1[i].back)
                         {
-                            //if (selectedPaste != -1 && selectedS != 1)
-                                //revealBackCard();
-
-                            //if (selectedPaste != -1 && selectedS != 1)
-                                selectedPaste = 1;
+                            selectedPaste = 1;
 
                             selectedPasteIndex = i;
 
@@ -3121,11 +3089,7 @@ namespace Solitaire
                     {
                         if (!stack2[i].back)
                         {
-                            //if (selectedPaste != -1 && selectedS != 2)
-                                //revealBackCard();
-
-                            //if (selectedPaste != -1 && selectedS != 2)
-                                selectedPaste = 2;
+                            selectedPaste = 2;
 
                             selectedPasteIndex = i;
 
@@ -3154,11 +3118,7 @@ namespace Solitaire
                     {
                         if (!stack3[i].back)
                         {
-                            //if (selectedPaste != -1 && selectedS != 3)
-                                //revealBackCard();
-
-                            //if (selectedPaste != -1 && selectedS != 3)
-                                selectedPaste = 3;
+                            selectedPaste = 3;
 
                             selectedPasteIndex = i;
 
@@ -3187,11 +3147,7 @@ namespace Solitaire
                     {
                         if (!stack4[i].back)
                         {
-                            //if (selectedPaste != -1 && selectedS != 4)
-                                //revealBackCard();
-
-                            //if (selectedPaste != -1 && selectedS != 4)
-                                selectedPaste = 4;
+                            selectedPaste = 4;
 
                             selectedPasteIndex = i;
 
@@ -3220,11 +3176,7 @@ namespace Solitaire
                     {
                         if (!stack5[i].back)
                         {
-                            //if (selectedPaste != -1 && selectedS != 5)
-                                //revealBackCard();
-
-                            //if (selectedPaste != -1 && selectedS != 5)
-                                selectedPaste = 5;
+                            selectedPaste = 5;
 
                             selectedPasteIndex = i;
 
@@ -3253,11 +3205,7 @@ namespace Solitaire
                     {
                         if (!stack6[i].back)
                         {
-                            //if (selectedPaste != -1 && selectedS != 6)
-                                //revealBackCard();
-
-                            //if (selectedPaste != -1 && selectedS != 6)
-                                selectedPaste = 6;
+                            selectedPaste = 6;
 
                             selectedPasteIndex = i;
 
@@ -3286,11 +3234,7 @@ namespace Solitaire
                     {
                         if (!stack7[i].back)
                         {
-                            //if (selectedPaste != -1 && selectedS != 7)
-                                //revealBackCard();
-
-                            //if (selectedPaste != -1 && selectedS != 7)
-                                selectedPaste = 7;
+                            selectedPaste = 7;
 
                             selectedPasteIndex = i;
 
@@ -3305,6 +3249,8 @@ namespace Solitaire
                         selectedPaste = -1;
                 }
 
+                selectedPaste = selectedPast;
+
                 selectedPIndex = selectedPasteIndex;
 
                 if (selectedPaste != -1)
@@ -3318,42 +3264,6 @@ namespace Solitaire
             }
 
             return false;
-        }
-
-        private void revealBackCard()
-        {
-            try
-            {
-                if (stack1.Count > 0)
-                {
-                    stack1[stack1.Count - 1].back = false;
-                }
-                if (stack2.Count > 0)
-                {
-                    stack2[stack2.Count - 1].back = false;
-                }
-                if (stack3.Count > 0)
-                {
-                    stack3[stack3.Count - 1].back = false;
-                }
-                if (stack4.Count > 0)
-                {
-                    stack4[stack4.Count - 1].back = false;
-                }
-                if (stack5.Count > 0)
-                {
-                    stack5[stack5.Count - 1].back = false;
-                }
-                if (stack6.Count > 0)
-                {
-                    stack6[stack6.Count - 1].back = false;
-                }
-                if (stack7.Count > 0)
-                {
-                    stack7[stack7.Count - 1].back = false;
-                }
-            }
-            catch (Exception e) {String str = e.Message;}
         }
 
         private bool selectMatCard()
