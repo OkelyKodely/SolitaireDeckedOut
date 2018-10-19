@@ -304,91 +304,224 @@ namespace Solitaire
                     {
                         if (cardsMat[cardsMat.Count - 1].rank == stack1[stack1.Count - 1].rank - 1)
                         {
-                            stack1.Add(cardsMat[cardsMat.Count - 1]);
-                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                            stack1[stack1.Count - 1].back = false;
-                            stack1[stack1.Count - 1].whatplace = "stak1";
-                            goNextMatCard();
-                            selectedMatCard = false;
-                            s_matCard = false;
+                            if (cardsMat[cardsMat.Count - 1].suit == Card.CLUB || cardsMat[cardsMat.Count - 1].suit == Card.SPADE)
+                            {
+                                if (stack1[stack1.Count - 1].suit == Card.HEART || stack1[stack1.Count - 1].suit == Card.DIAMOND)
+                                {
+                                    stack1.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack1[stack1.Count - 1].back = false;
+                                    stack1[stack1.Count - 1].whatplace = "stak1";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
+                            else if (cardsMat[cardsMat.Count - 1].suit == Card.HEART || cardsMat[cardsMat.Count - 1].suit == Card.DIAMOND)
+                            {
+                                if (stack1[stack1.Count - 1].suit == Card.CLUB || stack1[stack1.Count - 1].suit == Card.SPADE)
+                                {
+                                    stack1.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack1[stack1.Count - 1].back = false;
+                                    stack1[stack1.Count - 1].whatplace = "stak1";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
                         }
                     }
                     if (selectedPaste == 2 && selectedPasteIndex == stack2.Count - 1)
                     {
                         if (cardsMat[cardsMat.Count - 1].rank == stack2[stack2.Count - 1].rank - 1)
                         {
-                            stack2.Add(cardsMat[cardsMat.Count - 1]);
-                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                            stack2[stack2.Count - 1].back = false;
-                            stack2[stack2.Count - 1].whatplace = "stak2";
-                            goNextMatCard();
-                            selectedMatCard = false;
-                            s_matCard = false;
+                            if (cardsMat[cardsMat.Count - 1].suit == Card.CLUB || cardsMat[cardsMat.Count - 1].suit == Card.SPADE)
+                            {
+                                if (stack2[stack2.Count - 1].suit == Card.HEART || stack2[stack2.Count - 1].suit == Card.DIAMOND)
+                                {
+                                    stack2.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack2[stack2.Count - 1].back = false;
+                                    stack2[stack2.Count - 1].whatplace = "stak2";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
+                            else if (cardsMat[cardsMat.Count - 1].suit == Card.HEART || cardsMat[cardsMat.Count - 1].suit == Card.DIAMOND)
+                            {
+                                if (stack2[stack2.Count - 1].suit == Card.CLUB || stack2[stack2.Count - 1].suit == Card.SPADE)
+                                {
+                                    stack2.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack2[stack2.Count - 1].back = false;
+                                    stack2[stack2.Count - 1].whatplace = "stak2";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
                         }
                     }
                     if (selectedPaste == 3 && selectedPasteIndex == stack3.Count - 1)
                     {
                         if (cardsMat[cardsMat.Count - 1].rank == stack3[stack3.Count - 1].rank - 1)
                         {
-                            stack3.Add(cardsMat[cardsMat.Count - 1]);
-                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                            stack3[stack3.Count - 1].back = false;
-                            stack3[stack3.Count - 1].whatplace = "stak3";
-                            goNextMatCard();
-                            selectedMatCard = false;
-                            s_matCard = false;
+                            if (cardsMat[cardsMat.Count - 1].suit == Card.CLUB || cardsMat[cardsMat.Count - 1].suit == Card.SPADE)
+                            {
+                                if (stack3[stack3.Count - 1].suit == Card.HEART || stack3[stack3.Count - 1].suit == Card.DIAMOND)
+                                {
+                                    stack3.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack3[stack3.Count - 1].back = false;
+                                    stack3[stack3.Count - 1].whatplace = "stak3";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
+                            else if (cardsMat[cardsMat.Count - 1].suit == Card.HEART || cardsMat[cardsMat.Count - 1].suit == Card.DIAMOND)
+                            {
+                                if (stack3[stack3.Count - 1].suit == Card.CLUB || stack3[stack3.Count - 1].suit == Card.SPADE)
+                                {
+                                    stack3.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack3[stack3.Count - 1].back = false;
+                                    stack3[stack3.Count - 1].whatplace = "stak3";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
                         }
                     }
                     if (selectedPaste == 4 && selectedPasteIndex == stack4.Count - 1)
                     {
                         if (cardsMat[cardsMat.Count - 1].rank == stack4[stack4.Count - 1].rank - 1)
                         {
-                            stack4.Add(cardsMat[cardsMat.Count - 1]);
-                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                            stack4[stack4.Count - 1].back = false;
-                            stack4[stack4.Count - 1].whatplace = "stak4";
-                            goNextMatCard();
-                            selectedMatCard = false;
-                            s_matCard = false;
+                            if (cardsMat[cardsMat.Count - 1].suit == Card.CLUB || cardsMat[cardsMat.Count - 1].suit == Card.SPADE)
+                            {
+                                if (stack4[stack4.Count - 1].suit == Card.HEART || stack4[stack4.Count - 1].suit == Card.DIAMOND)
+                                {
+                                    stack4.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack4[stack4.Count - 1].back = false;
+                                    stack4[stack4.Count - 1].whatplace = "stak4";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
+                            else if (cardsMat[cardsMat.Count - 1].suit == Card.HEART || cardsMat[cardsMat.Count - 1].suit == Card.DIAMOND)
+                            {
+                                if (stack4[stack4.Count - 1].suit == Card.CLUB || stack4[stack4.Count - 1].suit == Card.SPADE)
+                                {
+                                    stack4.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack4[stack4.Count - 1].back = false;
+                                    stack4[stack4.Count - 1].whatplace = "stak4";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
                         }
                     }
                     if (selectedPaste == 5 && selectedPasteIndex == stack5.Count - 1)
                     {
                         if (cardsMat[cardsMat.Count - 1].rank == stack5[stack5.Count - 1].rank - 1)
                         {
-                            stack5.Add(cardsMat[cardsMat.Count - 1]);
-                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                            stack5[stack5.Count - 1].back = false;
-                            stack5[stack5.Count - 1].whatplace = "stak5";
-                            goNextMatCard();
-                            selectedMatCard = false;
-                            s_matCard = false;
+                            if (cardsMat[cardsMat.Count - 1].suit == Card.CLUB || cardsMat[cardsMat.Count - 1].suit == Card.SPADE)
+                            {
+                                if (stack5[stack5.Count - 1].suit == Card.HEART || stack5[stack5.Count - 1].suit == Card.DIAMOND)
+                                {
+                                    stack5.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack5[stack5.Count - 1].back = false;
+                                    stack5[stack5.Count - 1].whatplace = "stak5";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
+                            else if (cardsMat[cardsMat.Count - 1].suit == Card.HEART || cardsMat[cardsMat.Count - 1].suit == Card.DIAMOND)
+                            {
+                                if (stack5[stack5.Count - 1].suit == Card.CLUB || stack5[stack5.Count - 1].suit == Card.SPADE)
+                                {
+                                    stack5.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack5[stack5.Count - 1].back = false;
+                                    stack5[stack5.Count - 1].whatplace = "stak5";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
                         }
                     }
                     if (selectedPaste == 6 && selectedPasteIndex == stack6.Count - 1)
                     {
                         if (cardsMat[cardsMat.Count - 1].rank == stack6[stack6.Count - 1].rank - 1)
                         {
-                            stack6.Add(cardsMat[cardsMat.Count - 1]);
-                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                            stack6[stack6.Count - 1].back = false;
-                            stack6[stack6.Count - 1].whatplace = "stak6";
-                            goNextMatCard();
-                            selectedMatCard = false;
-                            s_matCard = false;
+                            if (cardsMat[cardsMat.Count - 1].suit == Card.CLUB || cardsMat[cardsMat.Count - 1].suit == Card.SPADE)
+                            {
+                                if (stack6[stack6.Count - 1].suit == Card.HEART || stack6[stack6.Count - 1].suit == Card.DIAMOND)
+                                {
+                                    stack6.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack6[stack6.Count - 1].back = false;
+                                    stack6[stack6.Count - 1].whatplace = "stak6";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
+                            else if (cardsMat[cardsMat.Count - 1].suit == Card.HEART || cardsMat[cardsMat.Count - 1].suit == Card.DIAMOND)
+                            {
+                                if (stack6[stack6.Count - 1].suit == Card.CLUB || stack6[stack6.Count - 1].suit == Card.SPADE)
+                                {
+                                    stack6.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack6[stack6.Count - 1].back = false;
+                                    stack6[stack6.Count - 1].whatplace = "stak6";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
                         }
                     }
                     if (selectedPaste == 7 && selectedPasteIndex == stack7.Count - 1)
                     {
                         if (cardsMat[cardsMat.Count - 1].rank == stack7[stack7.Count - 1].rank - 1)
                         {
-                            stack7.Add(cardsMat[cardsMat.Count - 1]);
-                            cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
-                            stack7[stack7.Count - 1].back = false;
-                            stack7[stack7.Count - 1].whatplace = "stak7";
-                            goNextMatCard();
-                            selectedMatCard = false;
-                            s_matCard = false;
+                            if (cardsMat[cardsMat.Count - 1].suit == Card.CLUB || cardsMat[cardsMat.Count - 1].suit == Card.SPADE)
+                            {
+                                if (stack7[stack7.Count - 1].suit == Card.HEART || stack7[stack7.Count - 1].suit == Card.DIAMOND)
+                                {
+                                    stack7.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack7[stack7.Count - 1].back = false;
+                                    stack7[stack7.Count - 1].whatplace = "stak7";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
+                            else if (cardsMat[cardsMat.Count - 1].suit == Card.HEART || cardsMat[cardsMat.Count - 1].suit == Card.DIAMOND)
+                            {
+                                if (stack7[stack7.Count - 1].suit == Card.CLUB || stack7[stack7.Count - 1].suit == Card.SPADE)
+                                {
+                                    stack7.Add(cardsMat[cardsMat.Count - 1]);
+                                    cardsMat.Remove(cardsMat[cardsMat.Count - 1]);
+                                    stack7[stack7.Count - 1].back = false;
+                                    stack7[stack7.Count - 1].whatplace = "stak7";
+                                    goNextMatCard();
+                                    selectedMatCard = false;
+                                    s_matCard = false;
+                                }
+                            }
                         }
                     }
                 }
@@ -1874,6 +2007,9 @@ namespace Solitaire
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
 
+                    if (i == stack1.Count - 1)
+                        someRectangle.Height = 160;
+
                     Rectangle area = someRectangle;
 
                     if (area.Contains(mousePosition1))
@@ -1891,6 +2027,9 @@ namespace Solitaire
                     Rectangle someRectangle = stack2[i].place;
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
+
+                    if (i == stack2.Count - 1)
+                        someRectangle.Height = 160;
 
                     Rectangle area = someRectangle;
 
@@ -1910,6 +2049,9 @@ namespace Solitaire
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
 
+                    if (i == stack3.Count - 1)
+                        someRectangle.Height = 160;
+
                     Rectangle area = someRectangle;
 
                     if (area.Contains(mousePosition1))
@@ -1927,6 +2069,9 @@ namespace Solitaire
                     Rectangle someRectangle = stack4[i].place;
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
+
+                    if (i == stack4.Count - 1)
+                        someRectangle.Height = 160;
 
                     Rectangle area = someRectangle;
 
@@ -1946,6 +2091,9 @@ namespace Solitaire
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
 
+                    if (i == stack5.Count - 1)
+                        someRectangle.Height = 160;
+
                     Rectangle area = someRectangle;
 
                     if (area.Contains(mousePosition1))
@@ -1964,6 +2112,9 @@ namespace Solitaire
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
 
+                    if (i == stack6.Count - 1)
+                        someRectangle.Height = 160;
+
                     Rectangle area = someRectangle;
 
                     if (area.Contains(mousePosition1))
@@ -1981,6 +2132,9 @@ namespace Solitaire
                     Rectangle someRectangle = stack7[i].place;
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
+
+                    if (i == stack7.Count - 1)
+                        someRectangle.Height = 160;
 
                     Rectangle area = someRectangle;
 
@@ -2026,6 +2180,9 @@ namespace Solitaire
                         someRectangle.Width = 80;
                         someRectangle.Height = 30;
 
+                        if (i == stack1.Count - 1)
+                            someRectangle.Height = 160;
+
                         Rectangle area = someRectangle;
 
                         if (area.Contains(mousePosition) || conttt)
@@ -2065,6 +2222,9 @@ namespace Solitaire
                         Rectangle someRectangle = stack2[i].place;
                         someRectangle.Width = 80;
                         someRectangle.Height = 30;
+
+                        if (i == stack2.Count - 1)
+                            someRectangle.Height = 160;
 
                         Rectangle area = someRectangle;
 
@@ -2106,6 +2266,9 @@ namespace Solitaire
                         someRectangle.Width = 80;
                         someRectangle.Height = 30;
 
+                        if (i == stack3.Count - 1)
+                            someRectangle.Height = 160;
+
                         Rectangle area = someRectangle;
 
                         if (area.Contains(mousePosition) || conttt)
@@ -2145,6 +2308,9 @@ namespace Solitaire
                         Rectangle someRectangle = stack4[i].place;
                         someRectangle.Width = 80;
                         someRectangle.Height = 30;
+
+                        if (i == stack4.Count - 1)
+                            someRectangle.Height = 160;
 
                         Rectangle area = someRectangle;
 
@@ -2186,6 +2352,9 @@ namespace Solitaire
                         someRectangle.Width = 80;
                         someRectangle.Height = 30;
 
+                        if (i == stack5.Count - 1)
+                            someRectangle.Height = 160;
+
                         Rectangle area = someRectangle;
 
                         if (area.Contains(mousePosition) || conttt)
@@ -2226,6 +2395,9 @@ namespace Solitaire
                         someRectangle.Width = 80;
                         someRectangle.Height = 30;
 
+                        if (i == stack6.Count - 1)
+                            someRectangle.Height = 160;
+
                         Rectangle area = someRectangle;
 
                         if (area.Contains(mousePosition) || conttt)
@@ -2265,6 +2437,9 @@ namespace Solitaire
                         Rectangle someRectangle = stack7[i].place;
                         someRectangle.Width = 80;
                         someRectangle.Height = 30;
+
+                        if (i == stack7.Count - 1)
+                            someRectangle.Height = 160;
 
                         Rectangle area = someRectangle;
 
@@ -2739,7 +2914,7 @@ namespace Solitaire
 
                 var mousePosition = new Point(_currentMouseState.X, _currentMouseState.Y);
 
-                Rectangle somRectangle = new Rectangle(200, 220, 80, 30);
+                Rectangle somRectangle = new Rectangle(200, 220, 80, 160);
 
                 Rectangle are = somRectangle;
 
@@ -2756,7 +2931,7 @@ namespace Solitaire
                     revealBackCard();
                 }
 
-                somRectangle = new Rectangle(300, 220, 80, 30);
+                somRectangle = new Rectangle(300, 220, 80, 160);
 
                 are = somRectangle;
 
@@ -2773,7 +2948,7 @@ namespace Solitaire
                     revealBackCard();
                 }
 
-                somRectangle = new Rectangle(400, 220, 80, 30);
+                somRectangle = new Rectangle(400, 220, 80, 160);
 
                 are = somRectangle;
 
@@ -2790,7 +2965,7 @@ namespace Solitaire
                     revealBackCard();
                 }
 
-                somRectangle = new Rectangle(500, 220, 80, 30);
+                somRectangle = new Rectangle(500, 220, 80, 160);
 
                 are = somRectangle;
 
@@ -2807,7 +2982,7 @@ namespace Solitaire
                     revealBackCard();
                 }
 
-                somRectangle = new Rectangle(600, 220, 80, 30);
+                somRectangle = new Rectangle(600, 220, 80, 160);
 
                 are = somRectangle;
 
@@ -2824,7 +2999,7 @@ namespace Solitaire
                     revealBackCard();
                 }
 
-                somRectangle = new Rectangle(700, 220, 80, 30);
+                somRectangle = new Rectangle(700, 220, 80, 160);
 
                 are = somRectangle;
 
@@ -2841,7 +3016,7 @@ namespace Solitaire
                     revealBackCard();
                 }
 
-                somRectangle = new Rectangle(800, 220, 80, 30);
+                somRectangle = new Rectangle(800, 220, 80, 160);
 
                 are = somRectangle;
 
@@ -2864,8 +3039,8 @@ namespace Solitaire
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
 
-                    if (i < stack1.Count - 1)
-                        someRectangle.Height = 30;
+                    if (i == stack1.Count - 1)
+                        someRectangle.Height = 160;
 
                     Rectangle area = someRectangle;
 
@@ -2895,8 +3070,8 @@ namespace Solitaire
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
 
-                    if (i < stack2.Count - 1)
-                        someRectangle.Height = 30;
+                    if (i == stack2.Count - 1)
+                        someRectangle.Height = 160;
 
                     Rectangle area = someRectangle;
 
@@ -2926,8 +3101,8 @@ namespace Solitaire
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
 
-                    if (i < stack3.Count - 1)
-                        someRectangle.Height = 30;
+                    if (i == stack3.Count - 1)
+                        someRectangle.Height = 160;
 
                     Rectangle area = someRectangle;
 
@@ -2957,8 +3132,8 @@ namespace Solitaire
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
 
-                    if (i < stack4.Count - 1)
-                        someRectangle.Height = 30;
+                    if (i == stack4.Count - 1)
+                        someRectangle.Height = 160;
 
                     Rectangle area = someRectangle;
 
@@ -2988,8 +3163,8 @@ namespace Solitaire
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
 
-                    if (i < stack5.Count - 1)
-                        someRectangle.Height = 30;
+                    if (i == stack5.Count - 1)
+                        someRectangle.Height = 160;
 
                     Rectangle area = someRectangle;
 
@@ -3019,8 +3194,8 @@ namespace Solitaire
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
 
-                    if (i < stack6.Count - 1)
-                        someRectangle.Height = 30;
+                    if (i == stack6.Count - 1)
+                        someRectangle.Height = 160;
 
                     Rectangle area = someRectangle;
 
@@ -3050,8 +3225,8 @@ namespace Solitaire
                     someRectangle.Width = 80;
                     someRectangle.Height = 30;
 
-                    if (i < stack7.Count - 1)
-                        someRectangle.Height = 30;
+                    if (i == stack7.Count - 1)
+                        someRectangle.Height = 160;
 
                     Rectangle area = someRectangle;
 
