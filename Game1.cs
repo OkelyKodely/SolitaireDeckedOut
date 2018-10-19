@@ -3566,7 +3566,7 @@ namespace Solitaire
         {
             var mousePosition1 = new Point(_currentMouseState.X, _currentMouseState.Y);
 
-            Rectangle someRectangle1 = new Rectangle(20, 300, 170, 80);
+            Rectangle someRectangle1 = new Rectangle(20, 220, 170, 80);
 
             Rectangle area1 = someRectangle1;
 
@@ -3590,7 +3590,7 @@ namespace Solitaire
             {
                 var mousePosition = new Point(_currentMouseState.X, _currentMouseState.Y);
 
-                Rectangle someRectangle = new Rectangle(20, 300, 170, 80);
+                Rectangle someRectangle = new Rectangle(20, 220, 170, 80);
 
                 Rectangle area = someRectangle;
 
@@ -3947,9 +3947,9 @@ namespace Solitaire
             spriteBatch.DrawString(spriteFont, "Email: dh.cho428@gmail.com", new Vector2(170, 580), Color.YellowGreen);
 
             if (hoverPlay == false)
-                spriteBatch.Draw(beginPlayT, new Rectangle(20, 300, 170, 80), Color.White);
+                spriteBatch.Draw(beginPlayT, new Rectangle(20, 220, 170, 80), Color.White);
             else
-                spriteBatch.Draw(beginPlayT, new Rectangle(2, 300, 200, 100), Color.White);
+                spriteBatch.Draw(beginPlayT, new Rectangle(2, 220, 200, 100), Color.White);
 
             if (cards != null)
             {
