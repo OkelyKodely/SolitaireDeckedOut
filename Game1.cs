@@ -55,8 +55,6 @@ namespace Solitaire
         bool selectedPotCard = false;
         bool selectedStackCard = false;
         bool selectedAnywhere = false;
-        bool doHoverNext = false;
-        bool doLeftClickMat = false;
         int ii = 0;
         int cntt = 0;
 
@@ -127,10 +125,12 @@ namespace Solitaire
                 {
                     try
                     {
+                        string str = e1.Message;
                         bg[i] = Content.Load<Texture2D>("frame_" + aaa + "_delay-0.07s");
                     }
                     catch (Exception e2)
                     {
+                        string str = e2.Message;
                         bg[i] = Content.Load<Texture2D>("frame_" + aaa + "_delay-s");
                     }
                 }
@@ -324,7 +324,7 @@ namespace Solitaire
 
             try
             {
-                if (selectedPasteIndex != -1)
+                if (selectedPasteIndex != -1 && selectedPaste == selectedPast)
                 {
                     if (selectedPaste == 1 && selectedPasteIndex == stack1.Count - 1)
                     {
@@ -1117,31 +1117,31 @@ namespace Solitaire
 
                                         mystackclear = true;
                                     }
-                                    if (selectedStack == 1)
+                                    if (selectedS == 1)
                                     {
                                         stack1[stack1.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 2)
+                                    else if (selectedS == 2)
                                     {
                                         stack2[stack2.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 3)
+                                    else if (selectedS == 3)
                                     {
                                         stack3[stack3.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 4)
+                                    else if (selectedS == 4)
                                     {
                                         stack4[stack4.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 5)
+                                    else if (selectedS == 5)
                                     {
                                         stack5[stack5.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 6)
+                                    else if (selectedS == 6)
                                     {
                                         stack6[stack6.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 7)
+                                    else if (selectedS == 7)
                                     {
                                         stack7[stack7.Count - 1].back = false;
                                     }
@@ -1179,31 +1179,31 @@ namespace Solitaire
 
                                         mystackclear = true;
                                     }
-                                    if (selectedStack == 1)
+                                    if (selectedS == 1)
                                     {
                                         stack1[stack1.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 2)
+                                    else if (selectedS == 2)
                                     {
                                         stack2[stack2.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 3)
+                                    else if (selectedS == 3)
                                     {
                                         stack3[stack3.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 4)
+                                    else if (selectedS == 4)
                                     {
                                         stack4[stack4.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 5)
+                                    else if (selectedS == 5)
                                     {
                                         stack5[stack5.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 6)
+                                    else if (selectedS == 6)
                                     {
                                         stack6[stack6.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 7)
+                                    else if (selectedS == 7)
                                     {
                                         stack7[stack7.Count - 1].back = false;
                                     }
@@ -1241,31 +1241,31 @@ namespace Solitaire
 
                                         mystackclear = true;
                                     }
-                                    if (selectedStack == 1)
+                                    if (selectedS == 1)
                                     {
                                         stack1[stack1.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 2)
+                                    else if (selectedS == 2)
                                     {
                                         stack2[stack2.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 3)
+                                    else if (selectedS == 3)
                                     {
                                         stack3[stack3.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 4)
+                                    else if (selectedS == 4)
                                     {
                                         stack4[stack4.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 5)
+                                    else if (selectedS == 5)
                                     {
                                         stack5[stack5.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 6)
+                                    else if (selectedS == 6)
                                     {
                                         stack6[stack6.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 7)
+                                    else if (selectedS == 7)
                                     {
                                         stack7[stack7.Count - 1].back = false;
                                     }
@@ -1303,31 +1303,31 @@ namespace Solitaire
 
                                         mystackclear = true;
                                     }
-                                    if (selectedStack == 1)
+                                    if (selectedS == 1)
                                     {
                                         stack1[stack1.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 2)
+                                    else if (selectedS == 2)
                                     {
                                         stack2[stack2.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 3)
+                                    else if (selectedS == 3)
                                     {
                                         stack3[stack3.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 4)
+                                    else if (selectedS == 4)
                                     {
                                         stack4[stack4.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 5)
+                                    else if (selectedS == 5)
                                     {
                                         stack5[stack5.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 6)
+                                    else if (selectedS == 6)
                                     {
                                         stack6[stack6.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 7)
+                                    else if (selectedS == 7)
                                     {
                                         stack7[stack7.Count - 1].back = false;
                                     }
@@ -1365,31 +1365,31 @@ namespace Solitaire
 
                                         mystackclear = true;
                                     }
-                                    if (selectedStack == 1)
+                                    if (selectedS == 1)
                                     {
                                         stack1[stack1.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 2)
+                                    else if (selectedS == 2)
                                     {
                                         stack2[stack2.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 3)
+                                    else if (selectedS == 3)
                                     {
                                         stack3[stack3.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 4)
+                                    else if (selectedS == 4)
                                     {
                                         stack4[stack4.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 5)
+                                    else if (selectedS == 5)
                                     {
                                         stack5[stack5.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 6)
+                                    else if (selectedS == 6)
                                     {
                                         stack6[stack6.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 7)
+                                    else if (selectedS == 7)
                                     {
                                         stack7[stack7.Count - 1].back = false;
                                     }
@@ -1427,31 +1427,31 @@ namespace Solitaire
 
                                         mystackclear = true;
                                     }
-                                    if (selectedStack == 1)
+                                    if (selectedS == 1)
                                     {
                                         stack1[stack1.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 2)
+                                    else if (selectedS == 2)
                                     {
                                         stack2[stack2.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 3)
+                                    else if (selectedS == 3)
                                     {
                                         stack3[stack3.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 4)
+                                    else if (selectedS == 4)
                                     {
                                         stack4[stack4.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 5)
+                                    else if (selectedS == 5)
                                     {
                                         stack5[stack5.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 6)
+                                    else if (selectedS == 6)
                                     {
                                         stack6[stack6.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 7)
+                                    else if (selectedS == 7)
                                     {
                                         stack7[stack7.Count - 1].back = false;
                                     }
@@ -1489,31 +1489,31 @@ namespace Solitaire
 
                                         mystackclear = true;
                                     }
-                                    if (selectedStack == 1)
+                                    if (selectedS == 1)
                                     {
                                         stack1[stack1.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 2)
+                                    else if (selectedS == 2)
                                     {
                                         stack2[stack2.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 3)
+                                    else if (selectedS == 3)
                                     {
                                         stack3[stack3.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 4)
+                                    else if (selectedS == 4)
                                     {
                                         stack4[stack4.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 5)
+                                    else if (selectedS == 5)
                                     {
                                         stack5[stack5.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 6)
+                                    else if (selectedS == 6)
                                     {
                                         stack6[stack6.Count - 1].back = false;
                                     }
-                                    if (selectedStack == 7)
+                                    else if (selectedS == 7)
                                     {
                                         stack7[stack7.Count - 1].back = false;
                                     }
@@ -2946,15 +2946,17 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    selectedPaste = 1;
+                    //if (selectedPaste != -1 && selectedS != 1)
+                        //revealBackCard();
+
+                    //if (selectedPaste != -1 && selectedS != 1)
+                        selectedPaste = 1;
 
                     selectedPasteIndex = -1;
 
                     selectedPast = selectedPaste;
 
                     s_potCard = false;
-
-                    revealBackCard();
                 }
 
                 somRectangle = new Rectangle(300, 220, 80, 160);
@@ -2963,15 +2965,17 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    selectedPaste = 2;
+                    //if (selectedPaste != -1 && selectedS != 2)
+                        //revealBackCard();
+
+                    //if (selectedPaste != -1 && selectedS != 2)
+                        selectedPaste = 2;
 
                     selectedPasteIndex = -1;
 
                     selectedPast = selectedPaste;
 
                     s_potCard = false;
-
-                    revealBackCard();
                 }
 
                 somRectangle = new Rectangle(400, 220, 80, 160);
@@ -2980,15 +2984,17 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    selectedPaste = 3;
+                    //if (selectedPaste != -1 && selectedS != 3)
+                        //revealBackCard();
+
+                    //if (selectedPaste != -1 && selectedS != 3)
+                        selectedPaste = 3;
 
                     selectedPasteIndex = -1;
 
                     selectedPast = selectedPaste;
 
                     s_potCard = false;
-
-                    revealBackCard();
                 }
 
                 somRectangle = new Rectangle(500, 220, 80, 160);
@@ -2997,15 +3003,17 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    selectedPaste = 4;
+                    //if (selectedPaste != -1 && selectedS != 4)
+                        //revealBackCard();
+
+                    //if (selectedPaste != -1 && selectedS != 4)
+                        selectedPaste = 4;
 
                     selectedPasteIndex = -1;
 
                     selectedPast = selectedPaste;
 
                     s_potCard = false;
-
-                    revealBackCard();
                 }
 
                 somRectangle = new Rectangle(600, 220, 80, 160);
@@ -3014,15 +3022,17 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    selectedPaste = 5;
+                    //if (selectedPaste != -1 && selectedS != 5)
+                        //revealBackCard();
+
+                    //if (selectedPaste != -1 && selectedS != 5)
+                        selectedPaste = 5;
 
                     selectedPasteIndex = -1;
 
                     selectedPast = selectedPaste;
 
                     s_potCard = false;
-
-                    revealBackCard();
                 }
 
                 somRectangle = new Rectangle(700, 220, 80, 160);
@@ -3031,15 +3041,17 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    selectedPaste = 6;
+                    //if (selectedPaste != -1 && selectedS != 6)
+                        //revealBackCard();
+
+                    //if (selectedPaste != -1 && selectedS != 6)
+                        selectedPaste = 6;
 
                     selectedPasteIndex = -1;
 
                     selectedPast = selectedPaste;
 
                     s_potCard = false;
-
-                    revealBackCard();
                 }
 
                 somRectangle = new Rectangle(800, 220, 80, 160);
@@ -3048,15 +3060,17 @@ namespace Solitaire
 
                 if (are.Contains(mousePosition))
                 {
-                    selectedPaste = 7;
+                    //if (selectedPaste != -1 && selectedS != 7)
+                        //revealBackCard();
+
+                    //if (selectedPaste != -1 && selectedS != 7)
+                        selectedPaste = 7;
 
                     selectedPasteIndex = -1;
 
                     selectedPast = selectedPaste;
 
                     s_potCard = false;
-
-                    revealBackCard();
                 }
 
                 for (int i = 0; i < stack1.Count; i++)
@@ -3074,13 +3088,15 @@ namespace Solitaire
                     {
                         if (!stack1[i].back)
                         {
-                            selectedPaste = 1;
+                            //if (selectedPaste != -1 && selectedS != 1)
+                                //revealBackCard();
+
+                            //if (selectedPaste != -1 && selectedS != 1)
+                                selectedPaste = 1;
 
                             selectedPasteIndex = i;
 
                             selectedFourIndex = -1;
-
-                            revealBackCard();
 
                             s_potCard = false;
 
@@ -3105,13 +3121,15 @@ namespace Solitaire
                     {
                         if (!stack2[i].back)
                         {
-                            selectedPaste = 2;
+                            //if (selectedPaste != -1 && selectedS != 2)
+                                //revealBackCard();
+
+                            //if (selectedPaste != -1 && selectedS != 2)
+                                selectedPaste = 2;
 
                             selectedPasteIndex = i;
 
                             selectedFourIndex = -1;
-
-                            revealBackCard();
 
                             s_potCard = false;
 
@@ -3136,13 +3154,15 @@ namespace Solitaire
                     {
                         if (!stack3[i].back)
                         {
-                            selectedPaste = 3;
+                            //if (selectedPaste != -1 && selectedS != 3)
+                                //revealBackCard();
+
+                            //if (selectedPaste != -1 && selectedS != 3)
+                                selectedPaste = 3;
 
                             selectedPasteIndex = i;
 
                             selectedFourIndex = -1;
-
-                            revealBackCard();
 
                             s_potCard = false;
 
@@ -3167,13 +3187,15 @@ namespace Solitaire
                     {
                         if (!stack4[i].back)
                         {
-                            selectedPaste = 4;
+                            //if (selectedPaste != -1 && selectedS != 4)
+                                //revealBackCard();
+
+                            //if (selectedPaste != -1 && selectedS != 4)
+                                selectedPaste = 4;
 
                             selectedPasteIndex = i;
 
                             selectedFourIndex = -1;
-
-                            revealBackCard();
 
                             s_potCard = false;
 
@@ -3198,13 +3220,15 @@ namespace Solitaire
                     {
                         if (!stack5[i].back)
                         {
-                            selectedPaste = 5;
+                            //if (selectedPaste != -1 && selectedS != 5)
+                                //revealBackCard();
+
+                            //if (selectedPaste != -1 && selectedS != 5)
+                                selectedPaste = 5;
 
                             selectedPasteIndex = i;
 
                             selectedFourIndex = -1;
-
-                            revealBackCard();
 
                             s_potCard = false;
 
@@ -3229,13 +3253,15 @@ namespace Solitaire
                     {
                         if (!stack6[i].back)
                         {
-                            selectedPaste = 6;
+                            //if (selectedPaste != -1 && selectedS != 6)
+                                //revealBackCard();
+
+                            //if (selectedPaste != -1 && selectedS != 6)
+                                selectedPaste = 6;
 
                             selectedPasteIndex = i;
 
                             selectedFourIndex = -1;
-
-                            revealBackCard();
 
                             s_potCard = false;
 
@@ -3260,13 +3286,15 @@ namespace Solitaire
                     {
                         if (!stack7[i].back)
                         {
-                            selectedPaste = 7;
+                            //if (selectedPaste != -1 && selectedS != 7)
+                                //revealBackCard();
+
+                            //if (selectedPaste != -1 && selectedS != 7)
+                                selectedPaste = 7;
 
                             selectedPasteIndex = i;
 
                             selectedFourIndex = -1;
-
-                            revealBackCard();
 
                             s_potCard = false;
 
@@ -3298,66 +3326,31 @@ namespace Solitaire
             {
                 if (stack1.Count > 0)
                 {
-                    bool check = true;
-                    for (int i = 0; i < stack1.Count; i++)
-                        if (!stack1[i].back)
-                            check = false;
-                    if (check)
-                        stack1[stack1.Count - 1].back = false;
+                    stack1[stack1.Count - 1].back = false;
                 }
                 if (stack2.Count > 0)
                 {
-                    bool check = true;
-                    for (int i = 0; i < stack2.Count; i++)
-                        if (!stack2[i].back)
-                            check = false;
-                    if (check)
-                        stack2[stack2.Count - 1].back = false;
+                    stack2[stack2.Count - 1].back = false;
                 }
                 if (stack3.Count > 0)
                 {
-                    bool check = true;
-                    for (int i = 0; i < stack3.Count; i++)
-                        if (!stack3[i].back)
-                            check = false;
-                    if (check)
-                        stack3[stack3.Count - 1].back = false;
+                    stack3[stack3.Count - 1].back = false;
                 }
                 if (stack4.Count > 0)
                 {
-                    bool check = true;
-                    for (int i = 0; i < stack4.Count; i++)
-                        if (!stack4[i].back)
-                            check = false;
-                    if (check)
-                        stack4[stack4.Count - 1].back = false;
+                    stack4[stack4.Count - 1].back = false;
                 }
                 if (stack5.Count > 0)
                 {
-                    bool check = true;
-                    for (int i = 0; i < stack5.Count; i++)
-                        if (!stack5[i].back)
-                            check = false;
-                    if (check)
-                        stack5[stack5.Count - 1].back = false;
+                    stack5[stack5.Count - 1].back = false;
                 }
                 if (stack6.Count > 0)
                 {
-                    bool check = true;
-                    for (int i = 0; i < stack6.Count; i++)
-                        if (!stack6[i].back)
-                            check = false;
-                    if (check)
-                        stack6[stack6.Count - 1].back = false;
+                    stack6[stack6.Count - 1].back = false;
                 }
                 if (stack7.Count > 0)
                 {
-                    bool check = true;
-                    for (int i = 0; i < stack7.Count; i++)
-                        if (!stack7[i].back)
-                            check = false;
-                    if (check)
-                        stack7[stack7.Count - 1].back = false;
+                    stack7[stack7.Count - 1].back = false;
                 }
             }
             catch (Exception e) {String str = e.Message;}
@@ -3365,8 +3358,6 @@ namespace Solitaire
 
         private bool selectMatCard()
         {
-            doLeftClickMat = false;
-
             var mousePosition1 = new Point(_currentMouseState.X, _currentMouseState.Y);
 
             Rectangle someRectangle1 = new Rectangle(160+5, 20, 80, 160);
@@ -3377,7 +3368,6 @@ namespace Solitaire
             {
                 showCursor = true;
                 this.IsMouseVisible = false;
-                doLeftClickMat = true;
             }
             else
             {
@@ -3516,8 +3506,6 @@ namespace Solitaire
 
         private bool nexts()
         {
-            doHoverNext = false;
-
             var mousePosition1 = new Point(_currentMouseState.X, _currentMouseState.Y);
 
             Rectangle someRectangle1 = new Rectangle(80, 20, 80, 160);
@@ -3526,7 +3514,6 @@ namespace Solitaire
 
             if (area1.Contains(mousePosition1))
             {
-                doHoverNext = true;
                 showCursor = true;
                 this.IsMouseVisible = false;
             }
