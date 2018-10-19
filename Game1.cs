@@ -16,7 +16,7 @@ namespace Solitaire
         bool firstTime = true;
         Boolean showCursor = false;
         Texture2D cursorTex;
-        Texture2D bg;
+        Texture2D[] bg = new Texture2D[137];
         Texture2D pot;
         Boolean clickNext = false;
         Boolean s_matCard = false;
@@ -108,7 +108,29 @@ namespace Solitaire
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            bg = Content.Load<Texture2D>("bg");
+            for (int i = 0; i < 137; i++)
+            {
+                string aaa = "" + i;
+                if (aaa.Length == 1)
+                    aaa = "00" + aaa;
+                else if (aaa.Length == 2)
+                    aaa = "0" + aaa;
+                try
+                {
+                    bg[i] = Content.Load<Texture2D>("frame_" + aaa + "_delay-0.06s");
+                }
+                catch(Exception e1)
+                {
+                    try
+                    {
+                        bg[i] = Content.Load<Texture2D>("frame_" + aaa + "_delay-0.07s");
+                    }
+                    catch (Exception e2)
+                    {
+                        bg[i] = Content.Load<Texture2D>("frame_" + aaa + "_delay-s");
+                    }
+                }
+            }
             pot = Content.Load<Texture2D>("pot");
             cursorTex = Content.Load<Texture2D>("mouseHand");
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
@@ -3770,12 +3792,23 @@ namespace Solitaire
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        int cntt = 0;
+        int ii = 0;
         protected override void Draw(GameTime gameTime)
         {
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            spriteBatch.Draw(bg, new Rectangle(0, 0, 900, 700), Color.WhiteSmoke);
+            if(cntt == 0)
+                spriteBatch.Draw(bg[ii++], new Rectangle(0, 0, 900, 700), Color.WhiteSmoke);
+
+            cntt++;
+
+            if (cntt == 10)
+                cntt = 0;
+
+            if (ii == 137)
+                ii = 0;
 
             SpriteBatchEx.DrawLine(spriteBatch, new Vector2(80, 20), new Vector2(160, 20), Color.YellowGreen, 1);
             SpriteBatchEx.DrawLine(spriteBatch, new Vector2(80, 180), new Vector2(160, 180), Color.YellowGreen, 1);
