@@ -59,6 +59,7 @@ namespace Solitaire
         int iibgg = 0;
         int ii = 0;
         int cntt = 0;
+        int cntt2 = 0;
 
         int countStack1 = 0, countStack2 = 0, countStack3 = 0, countStack4 = 0;
         int insertStack1 = -1, insertStack2 = -1, insertStack3 = -1, insertStack4 = -1;
@@ -3473,7 +3474,7 @@ namespace Solitaire
         {
             var mousePosition1 = new Point(_currentMouseState.X, _currentMouseState.Y);
 
-            Rectangle someRectangle1 = new Rectangle(20, 220, 170, 80);
+            Rectangle someRectangle1 = new Rectangle(20, 230, 170, 20);
 
             Rectangle area1 = someRectangle1;
 
@@ -3497,7 +3498,7 @@ namespace Solitaire
             {
                 var mousePosition = new Point(_currentMouseState.X, _currentMouseState.Y);
 
-                Rectangle someRectangle = new Rectangle(20, 220, 170, 80);
+                Rectangle someRectangle = new Rectangle(20, 230, 170, 20);
 
                 Rectangle area = someRectangle;
 
@@ -3736,26 +3737,35 @@ namespace Solitaire
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            spriteBatch.Draw(bgg[iibgg], new Rectangle(0, 0, 900, 700), Color.DarkGray);
+            spriteBatch.Draw(bgg[ii], new Rectangle(0, 0, 900, 700), Color.DarkGray);
 
-            spriteBatch.Draw(bg[ii], new Rectangle(700, 0, 200, 200), Color.White);
+            spriteBatch.Draw(bg[iibgg], new Rectangle(700, 0, 200, 200), Color.White);
 
             if (cntt == 0)
             {
-                iibgg++;
                 ii++;
+            }
+
+            if (cntt2 == 0)
+            {
+                iibgg++;
             }
 
             cntt++;
 
-            if (cntt == 3)
+            cntt2++;
+
+            if (cntt == 6)
                 cntt = 0;
 
-            if (iibgg == 24)
-                iibgg = 0;
+            if (cntt2 == 4)
+                cntt2 = 0;
 
-            if (ii == 137)
+            if (ii == 24)
                 ii = 0;
+
+            if (iibgg == 137)
+                iibgg = 0;
 
             SpriteBatchEx.DrawLine(spriteBatch, new Vector2(80, 20), new Vector2(160, 20), Color.YellowGreen, 1);
             SpriteBatchEx.DrawLine(spriteBatch, new Vector2(80, 180), new Vector2(160, 180), Color.YellowGreen, 1);
@@ -3860,9 +3870,9 @@ namespace Solitaire
             spriteBatch.DrawString(spriteFont, "Email: dh.cho428@gmail.com", new Vector2(170, 580), Color.DarkRed);
 
             if (hoverPlay == false)
-                spriteBatch.Draw(beginPlayT, new Rectangle(20, 220, 170, 80), Color.White);
+                spriteBatch.Draw(beginPlayT, new Rectangle(20, 200, 170, 80), Color.White);
             else
-                spriteBatch.Draw(beginPlayT, new Rectangle(2, 220, 200, 100), Color.White);
+                spriteBatch.Draw(beginPlayT, new Rectangle(2, 200, 200, 100), Color.White);
 
             if (cards != null)
             {
