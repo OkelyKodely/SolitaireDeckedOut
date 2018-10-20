@@ -12,6 +12,8 @@ namespace Solitaire
     /// </summary>
     public class Game1 : Game
     {
+        bool stopTimer = true;
+        int hour, minute, seconds;
         bool smat = false;
         bool firstTime = true;
         Boolean showCursor = false;
@@ -77,6 +79,29 @@ namespace Solitaire
         string stakHover = "";
         bool stkChanged = false;
         bool mystackclear = false;
+
+        private void st_timer()
+        {
+            while (true)
+            {
+                if (!stopTimer)
+                {
+                    new System.Threading.ManualResetEvent(false).WaitOne(1000);
+                    if(seconds < 60)
+                        seconds++;
+                    if(seconds == 60)
+                    {
+                        seconds = 0;
+                        minute++;
+                    }
+                    if (minute == 60)
+                    {
+                        minute = 0;
+                        hour++;
+                    }
+                }
+            }
+        }
 
         public Game1()
             : base()
@@ -299,6 +324,15 @@ namespace Solitaire
                 againCards = false;
                 beginPlayClicked = false;
 
+                System.Threading.Thread t = new System.Threading.Thread(st_timer);
+                t.Start();
+
+                stopTimer = false;
+
+                hour = 0;
+                minute = 0;
+                seconds = 0;
+
                 firstTime = false;
             }
 
@@ -314,6 +348,10 @@ namespace Solitaire
                     selectedPIndex = -1;
                     selectedStackIndex = -1;
                     selectedStack = -1;
+                    stopTimer = false;
+                    hour = 0;
+                    minute = 0;
+                    seconds = 0;
                 }
             }
 
@@ -3734,6 +3772,8 @@ namespace Solitaire
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            this.Window.Title = "Solitaire Decked Out (" + hour + ":" + minute + ":" + seconds + ")";
+
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
@@ -3745,8 +3785,10 @@ namespace Solitaire
             {
                 if (stack.Count == 52)
                 {
+                    stopTimer = true;
                     spriteBatch.Draw(bg[iibgg], new Rectangle(0, 0, 900, 700), Color.White);
                     spriteBatch.DrawString(spriteFont, "You Won!", new Vector2(10, 300), Color.Blue);
+                    spriteBatch.DrawString(spriteFont, "You took " + hour + ":" + minute + ":" + seconds, new Vector2(10, 330), Color.Blue);
                 }
             }
 
