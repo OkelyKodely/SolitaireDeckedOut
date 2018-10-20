@@ -3785,10 +3785,12 @@ namespace Solitaire
             {
                 if (stack.Count == 52)
                 {
+                    if (!stopTimer)
+                        MessageBox.Show("Congratulations!  You Won!");
                     stopTimer = true;
                     spriteBatch.Draw(bg[iibgg], new Rectangle(0, 0, 900, 700), Color.White);
-                    spriteBatch.DrawString(spriteFont, "You Won!", new Vector2(10, 300), Color.Blue);
-                    spriteBatch.DrawString(spriteFont, "You took " + hour + ":" + minute + ":" + seconds, new Vector2(10, 330), Color.Blue);
+                    spriteBatch.DrawString(spriteFont, "You Won!", new Vector2(10, 300), Color.Black);
+                    spriteBatch.DrawString(spriteFont, "You took " + hour + ":" + minute + ":" + seconds, new Vector2(10, 330), Color.Black);
                 }
             }
 
