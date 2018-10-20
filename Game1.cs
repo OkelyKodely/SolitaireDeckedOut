@@ -3741,6 +3741,15 @@ namespace Solitaire
 
             spriteBatch.Draw(bg[iibgg], new Rectangle(700, 0, 200, 200), Color.White);
 
+            if (stack != null)
+            {
+                if (stack.Count == 52)
+                {
+                    spriteBatch.Draw(bg[iibgg], new Rectangle(0, 0, 900, 700), Color.White);
+                    spriteBatch.DrawString(spriteFont, "You Won!", new Vector2(10, 300), Color.Blue);
+                }
+            }
+
             if (cntt == 0)
             {
                 ii++;
@@ -4031,110 +4040,6 @@ namespace Solitaire
                         card = Content.Load<Texture2D>(stack[i].suit + "-" + stack[i].rank);
                         spriteBatch.Draw(card, stack[i].place, Color.White);
                     }
-                }
-            }
-
-            if (stack != null)
-            {
-                if (stack.Count == 52)
-                {
-                    MessageBox.Show("Congratulations!  You won!");
-
-                    gameOver = false;
-
-                    cards = new List<Card>();
-
-                    for (int suit = Card.DIAMOND; suit <= Card.SPADE; suit++)
-                    {
-                        for (int rank = 1; rank <= 13; rank++)
-                        {
-                            Card card = new Card();
-                            cards.Add(card);
-
-                            card.rank = rank;
-                            card.suit = suit;
-                            card.place = new Rectangle(160 + 5, 20, 80, 160);
-
-                            if (rank == 1)
-                            {
-                                card.card = "ace";
-                            }
-                            else if (rank == 2)
-                            {
-                                card.card = "two";
-                            }
-                            else if (rank == 3)
-                            {
-                                card.card = "three";
-                            }
-                            else if (rank == 4)
-                            {
-                                card.card = "four";
-                            }
-                            else if (rank == 5)
-                            {
-                                card.card = "five";
-                            }
-                            else if (rank == 6)
-                            {
-                                card.card = "six";
-                            }
-                            else if (rank == 7)
-                            {
-                                card.card = "seven";
-                            }
-                            else if (rank == 8)
-                            {
-                                card.card = "eight";
-                            }
-                            else if (rank == 9)
-                            {
-                                card.card = "nine";
-                            }
-                            else if (rank == 10)
-                            {
-                                card.card = "ten";
-                            }
-                            else if (rank == 11)
-                            {
-                                card.card = "jack";
-                            }
-                            else if (rank == 12)
-                            {
-                                card.card = "queen";
-                            }
-                            else if (rank == 13)
-                            {
-                                card.card = "king";
-                            }
-                        }
-                    }
-
-                    do
-                    {
-                        cards = FisherYates.Shuffle(cards);
-                    } while (cards[0].rank == 1);
-
-                    cardsMat = new List<Card>();
-                    mystack = new List<Card>();
-                    stack1 = new List<Card>();
-                    stack2 = new List<Card>();
-                    stack3 = new List<Card>();
-                    stack4 = new List<Card>();
-                    stack5 = new List<Card>();
-                    stack6 = new List<Card>();
-                    stack7 = new List<Card>();
-                    stack = new List<Card>();
-
-                    s_matCard = false;
-                    s_potCard = false;
-                    dealCards();
-                    againCards = false;
-                    beginPlayClicked = false;
-                    mystack.Clear();
-                    selectedPIndex = -1;
-                    selectedStackIndex = -1;
-                    selectedStack = -1;
                 }
             }
 
