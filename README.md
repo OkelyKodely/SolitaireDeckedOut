@@ -1,1 +1,1 @@
-# SolitaireNext
+# SolitaireDeckedOut
